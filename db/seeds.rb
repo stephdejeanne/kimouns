@@ -10,7 +10,7 @@ Offer.destroy_all
 Offer.create!(name: "débroussaillage", category: "jardinage", description: "")
 Offer.create!(name: "tonte", category: "jardinage", description: "")
 Offer.create!(name: "carrelage", category: "bricolage", description: "")
-Offer.create!(name: "peinture", category: "bricolage", description: "")
+Offer.create!(name: "peinture", category: "bricolage", description: "je réalise la peinture een intérieur et extérieur")
 Offer.create!(name: "maçonnerie", category: "bricolage", description: "je réalise des murs en parpaing, en briques, en béton")
 Offer.create!(name: "couturier", category: "couture", description: "besoin de modifier, d'adapter ou de retoucher vos vêtements")
 Offer.create!(name: "montage de meuble", category: "bricologe", description: "je vous aide à monter les armoires, les lits et les placards quelque soit la marque ou le modèle !")
