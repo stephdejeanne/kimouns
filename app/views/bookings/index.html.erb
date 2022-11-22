@@ -1,0 +1,11 @@
+<h2> Cher <%=current_user.first_name %> <%=current_user.last_name %> </h2>
+<h3> Ci-dessous la liste de vos réservations </h3>
+  <% @bookings.each do |booking| %>
+      <ul>
+        <li>Le troc : <%=@offer.name%></li>
+        <li>Début du booking : <%= booking.start %></li>
+        <li>Fin du booking : <%= booking.end %></li>
+      <</ul>
+  <% end %>
+  <%= link_to "Retourner à la page d'accueil", root_path, class: "btn btn-primary" %>
+</div>
