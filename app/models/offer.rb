@@ -1,2 +1,2 @@
-class Offer < ApplicationRecord
+class Offer < Application
 end
