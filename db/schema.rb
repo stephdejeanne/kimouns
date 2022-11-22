@@ -19,11 +19,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_21_204059) do
     t.date "end_time"
     t.bigint "user_id", null: false
     t.bigint "offer_id", null: false
-    t.bigint "review_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["offer_id"], name: "index_bookings_on_offer_id"
-    t.index ["review_id"], name: "index_bookings_on_review_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
 
@@ -31,20 +29,24 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_21_204059) do
     t.string "category"
     t.string "description"
     t.string "name"
+    t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_offers_on_user_id"
   end
 
   create_table "reviews", force: :cascade do |t|
     t.string "content"
     t.integer "rating"
+    t.bigint "booking_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["booking_id"], name: "index_reviews_on_booking_id"
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "name"
-    t.string "role"
+    t.string "first_name"
+    t.string "last_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "email", default: "", null: false
@@ -57,6 +59,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_21_204059) do
   end
 
   add_foreign_key "bookings", "offers"
-  add_foreign_key "bookings", "reviews"
   add_foreign_key "bookings", "users"
+  add_foreign_key "offers", "users"
+  add_foreign_key "reviews", "bookings"
 end
