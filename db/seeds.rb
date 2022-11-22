@@ -21,15 +21,18 @@ offer_a = Offer.create!(user_id: user_a.id, name: "débroussaillage", category: 
 offer_b = Offer.create!(user_id: user_b.id, name: "tonte", category: "jardinage", description: "")
 offer_c = Offer.create!(user_id: user_c.id, name: "carrelage", category: "bricolage", description: "")
 offer_d = Offer.create!(user_id: user_d.id, name: "peinture", category: "bricolage", description: "")
-offer_e = Offer.create!(user_id: user_d.id, name: "maçonnerie", category: "bricolage", description: "je réalise des murs en parpaing, en briques, en béton")
-offer_f = Offer.create!(user_id: user_d.id, name: "couturier", category: "couture", description: "besoin de modifier, d'adapter ou de retoucher vos vêtements")
-offer_g = Offer.create!(user_id: user_d.id, name: "montage de meuble", category: "bricologe", description: "je vous aide à monter les armoires, les lits et les placards quelque soit la marque ou le modèle !")
+offer_e = Offer.create!(user_id: user_a.id, name: "maçonnerie", category: "bricolage", description: "je réalise des murs en parpaing, en briques, en béton")
+offer_f = Offer.create!(user_id: user_b.id, name: "couturier", category: "couture", description: "besoin de modifier, d'adapter ou de retoucher vos vêtements")
+offer_g = Offer.create!(user_id: user_c.id, name: "montage de meuble", category: "bricologe", description: "je vous aide à monter les armoires, les lits et les placards quelque soit la marque ou le modèle !")
+offer_h = Offer.create!(user_id: user_d.id, name: "donne des fruits", category: "jardinage", description: "j'ai des mangues à donner")
 
 
-booking_a = Booking.create!(user_id: user_a.id, offer_id: offer_a.id, start_time: "2021-11-21", end_time: "2021-11-22")
-booking_b = Booking.create!(user_id: user_b.id, offer_id: offer_b.id, start_time: "2021-11-21", end_time: "2021-11-22")
-booking_c = Booking.create!(user_id: user_c.id, offer_id: offer_c.id, start_time: "2021-11-21", end_time: "2021-11-22")
-booking_d = Booking.create!(user_id: user_d.id, offer_id: offer_d.id, start_time: "2021-11-21", end_time: "2021-11-22")
-booking_e = Booking.create!(user_id: user_d.id, offer_id: offer_e.id, start_time: "2021-11-21", end_time: "2021-11-22")
+booking_a = Booking.create!(user_id: user_a.id, offer_id: offer_b.id, start_time: "2021-11-21", end_time: "2021-11-22")
+booking_b = Booking.create!(user_id: user_b.id, offer_id: offer_a.id, start_time: "2021-11-21", end_time: "2021-11-22")
+booking_c = Booking.create!(user_id: user_c.id, offer_id: offer_d.id, start_time: "2021-11-21", end_time: "2021-11-22")
+booking_d = Booking.create!(user_id: user_d.id, offer_id: offer_e.id, start_time: "2021-11-21", end_time: "2021-11-22")
+booking_e = Booking.create!(user_id: user_a.id, offer_id: offer_f.id, start_time: "2021-11-21", end_time: "2021-11-22")
+booking_f = Booking.create!(user_id: user_b.id, offer_id: offer_c.id, start_time: "2021-11-21", end_time: "2021-11-22")
+booking_g = Booking.create!(user_id: user_c.id, offer_id: offer_h.id, start_time: "2021-11-21", end_time: "2021-11-22")
 
 puts "terminé"
