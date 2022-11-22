@@ -1,0 +1,21 @@
+<div class="container">
+  <h3>Réservez votre troc <%=@quad.name%> </h3>
+  <div class="d-flex justify-content-between" style="width: 36rem;" >
+    <div>
+      <img src=""  alt="photo du quad" width="250">
+    </div>
+    <div>
+      <%= link_to "Choisir un autre service", offers_path, class: "btn btn-primary" %>
+      <div><p></p></div>
+      <%= link_to "Revoir les détails du service", offer_path(@offer), class: "btn btn-primary" %>
+    </div>
+  </div>
+  <div><p></p></div>
+  <div id="new-booking" class="card" style="width: 36rem;">
+    <%= simple_form_for [@offer, @booking] do |f| %>
+      <%= f.input :start %>
+      <%= f.input :end %>
+      <%= f.button :submit, 'Réserver', class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
