@@ -5,7 +5,7 @@ export default class extends Controller {
   connect() {
     // console.log('hello alexis and kelly')
     new Typed(this.element, {
-      strings: ["Troc et dépannage de matériel", "Pour vous rendre service"],
+      strings: ["Echange de services et de matériel", "Entre particuliers"],
       typeSpeed: 50,
       loop: true
     })
