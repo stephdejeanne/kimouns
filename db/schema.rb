@@ -14,6 +14,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_22_184316) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+    # Table des résevations des utilisateurs du site
   create_table "bookings", force: :cascade do |t|
     t.date "start_time"
     t.date "end_time"
@@ -25,6 +26,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_22_184316) do
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
 
+  # Table des trocs disponibles aux utilisateurs du site
   create_table "offers", force: :cascade do |t|
     t.string "category"
     t.string "description"
@@ -38,6 +40,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_22_184316) do
     t.index ["user_id"], name: "index_offers_on_user_id"
   end
 
+  # Table des avis des utilisateurs sur les trocs
   create_table "reviews", force: :cascade do |t|
     t.string "content"
     t.integer "rating"
@@ -47,6 +50,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_22_184316) do
     t.index ["booking_id"], name: "index_reviews_on_booking_id"
   end
 
+  # Table des utilisateurs du site
   create_table "users", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"

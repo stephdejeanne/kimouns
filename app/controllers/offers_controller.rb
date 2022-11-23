@@ -34,7 +34,7 @@ class OffersController < ApplicationController
     @offer.destroy
     redirect_to offers_path
   end
-  
+
   private
 
   def set_offer
