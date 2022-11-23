@@ -1,7 +1,7 @@
 class BookingsController < ApplicationController
-  before_action :set_offer, only: [:new, :create, :show]
+  before_action :set_offer, only: [:index, :new, :create, :show]
   def index
-    @bookings = Booking.where(user: current_user)
+    @bookings = Booking.where(offer: @offer, user: current_user)
   end
 
   def new
@@ -13,7 +13,7 @@ class BookingsController < ApplicationController
   end
 
   def create
-    @offer = Offer.find(params[:quad_id])
+    @offer = Offer.find(params[:offer_id])
     @booking = Booking.new(booking_params)
     @booking.offer = @offer
     @booking.user = current_user
@@ -25,8 +25,9 @@ class BookingsController < ApplicationController
   end
 
   private
+
   def set_offer
-    @offer = Offer.find(params[:quad_id])
+    @offer = Offer.find(params[:offer_id])
   end
 
   def booking_params
