@@ -3,7 +3,7 @@
 
 
 <% @offers.each do |offer| %>
-  <a href="#" class="clickable-card">
+  <%= link_to offer_path(offer) , class: "clickable-card" do %>
     <article>
       <div class="article-wrapper card">
         <figure>
@@ -16,15 +16,15 @@
           <div class="read-more">Read more</span>
           </div>
         </div>
+      </div>
     </article>
   <% end %>
-</a>
+<% end %>
 <ul>
-      <div id="spe" class="card" style="width: 18rem;">
-        <div class="card-body">
-          <h5 class="card-title"> <%#= offer.name %></h5>
-          <p class="card-text"> <%#= offer.category %></p>
-        </div>
-      </div>
+  <div id="spe" class="card" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title"> <%#= offer.name %></h5>
+      <p class="card-text"> <%#= offer.category %></p>
+    </div>
   </div>
 </ul>

@@ -6,7 +6,7 @@ class OffersController < ApplicationController
   end
 
   def show
-    @offers = Offer.find(params[:id])
+    @offer = Offer.find(params[:id])
     @booking = Booking.new
    # @markers = @offers.geocoded.map do |offer|
    #   {
@@ -36,7 +36,7 @@ class OffersController < ApplicationController
     @offer.destroy
     redirect_to offers_path
   end
-  
+
   private
 
   def set_offer
