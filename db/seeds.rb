@@ -29,7 +29,7 @@ offer_i = Offer.create!(user_id: user_a.id, name: "travaux de manutention", cate
 
 
 
-offer_a = Offer.create!(user_id: user_a.id, name: "Débroussaillage", category: "Jardinnage", description: "", address: "Habitation Petit Morne, 97232 Le Lamentin", photo: "https://res.cloudinary.com/dagtyhizn/image/upload/v1669233653/veronica-reverse-qYwyRF9u-uo-unsplash_uq41vj.jpg")
+offer_a = Offer.create!(user_id: user_a.id, name: "Débroussaillage", category: "Jardinnage", description: "", address: "Habitation Petit Morne, 97232 Le Lamentin", photo.category "https://res.cloudinary.com/dagtyhizn/image/upload/v1669233653/veronica-reverse-qYwyRF9u-uo-unsplash_uq41vj.jpg")
 offer_b = Offer.create!(user_id: user_b.id, name: "Tonte", category: "Jardinnage", description: "", address: "Rue de la République, 97200 Fort-de-France", photo: "https://res.cloudinary.com/dagtyhizn/image/upload/v1669233653/veronica-reverse-qYwyRF9u-uo-unsplash_uq41vj.jpg")
 offer_c = Offer.create!(user_id: user_c.id, name: "Carrelage", category: "Bricolage", description: "", address: "Habitation Petit Morne, 97232 Le Lamentin", photo: "https://res.cloudinary.com/dagtyhizn/image/upload/v1669233731/caleb-woods--Ifr1HGFeW8-unsplash_usxhgi.jpg")
 offer_d = Offer.create!(user_id: user_d.id, name: "Peinture", category: "Bricolage", description: "", address: "Rue de la République, 97200 Fort-de-France", photo: "https://res.cloudinary.com/dagtyhizn/image/upload/v1669233731/caleb-woods--Ifr1HGFeW8-unsplash_usxhgi.jpg")
