@@ -5,6 +5,7 @@ class OffersController < ApplicationController
 
   def show
     # @offer = Offer.new
+    @offer = Offer.find(params[:id])
     @offers = Offer.where(id: params[:id])
     @markers = @offers.geocoded.map do |offer|
       {
