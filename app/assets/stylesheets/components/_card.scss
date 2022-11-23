@@ -4,4 +4,26 @@
 
 .card-grey {
   background-color: #dee7e7;
+
+.youpi {
+  display: flex;
+}
+.card {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  display: inline-block;
+  margin: 10px;
+}
+#img-card{
+ height: 286px;
+}
+
+#text-card{
+  color: #14C38E;
+}
+.container {
+  grid-template-columns: 100px 50px 100px;
+  grid-template-rows: 80px auto 80px;
+  column-gap: 10px;
+  row-gap: 15px;
 }

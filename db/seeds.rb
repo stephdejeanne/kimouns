@@ -10,10 +10,14 @@ Booking.destroy_all
 Offer.destroy_all
 User.destroy_all
 
+
+# Création des utilisateurs
+
 user_a = User.create!(first_name: "kelly", last_name: "nerestan", email: "kelly@gmail.com", password: "123456")
 user_b = User.create!(first_name: "alain", last_name: "deloin", email: "alain@gmail.com", password: "123456")
 user_c = User.create!(first_name: "garry", last_name: "gabin", email: "garry@gmail.com", password: "123456")
 user_d = User.create!(first_name: "steph", last_name: "chaigneau", email: "steph@gmail.com", password: "123456")
+
 
 offer_a = Offer.create!(user_id: user_a.id, name: "débroussaillage", category: "jardinage", description: "", address: "Habitation Petit Morne, 97232 Le Lamentin")
 offer_b = Offer.create!(user_id: user_b.id, name: "tonte", category: "jardinage", description: "", address: "Rue de la République, 97200 Fort-de-France")
@@ -23,6 +27,8 @@ offer_e = Offer.create!(user_id: user_a.id, name: "maçonnerie", category: "bric
 offer_f = Offer.create!(user_id: user_b.id, name: "couturier", category: "couture", description: "besoin de modifier, d'adapter ou de retoucher vos vêtements", address: "Habitation Petit Morne, 97232 Le Lamentin")
 offer_g = Offer.create!(user_id: user_c.id, name: "montage de meuble", category: "bricolage", description: "je vous aide à monter les armoires, les lits et les placards quelque soit la marque ou le modèle !", address: "Rue de la République, 97200 Fort-de-France")
 offer_h = Offer.create!(user_id: user_d.id, name: "donne des fruits", category: "jardinage", description: "j'ai des mangues à donner", address: "Habitation Petit Morne, 97232 Le Lamentin")
+
+# Création des demandes ou réservations
 
 booking_a = Booking.create!(user_id: user_a.id, offer_id: offer_b.id, start_time: "2021-11-21", end_time: "2021-11-22")
 booking_b = Booking.create!(user_id: user_b.id, offer_id: offer_a.id, start_time: "2021-11-21", end_time: "2021-11-22")

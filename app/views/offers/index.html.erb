@@ -1,30 +1,12 @@
-<h1>Offers#index</h1>
-<p>Find me in app/views/offers/index.html.erb</p>
-
-
-<% @offers.each do |offer| %>
-  <a href="#" class="clickable-card">
-    <article>
-      <div class="article-wrapper card">
-        <figure>
-          <img src="https://picsum.photos/id/1011/800/450" alt="" />
-        </figure>
-        <div class="article-body">
-        <div class="">
-          <h2><%= offer.name %></h2>
-          <p><%= offer.category %></p>
-          <div class="read-more">Read more</span>
-          </div>
-        </div>
-    </article>
-  <% end %>
-</a>
-<ul>
-      <div id="spe" class="card" style="width: 18rem;">
-        <div class="card-body">
-          <h5 class="card-title"> <%#= offer.name %></h5>
-          <p class="card-text"> <%#= offer.category %></p>
-        </div>
-      </div>
+<div class="banner">
+  <div class="container">
+    <% @offers.each do |offer| %>
+    <div class="card" style="width: 18rem;">
+      <img id="img-card" src="<%= offer.photo %>" class="card-img-top" alt="<%= offer.name %>">
+      <div class="card-body">
+        <h5 class="card-title"><%= offer.name %></h5>
+        <p id="text-card" class="card-text"><%= offer.category %></p>
+        <%= link_to "Sélectionner", offer_path(offer), class: "btn btn-success" %>
   </div>
-</ul>
+</div>
+<% end %>
