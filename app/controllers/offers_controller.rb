@@ -1,20 +1,18 @@
 class OffersController < ApplicationController
-  before_action  only: [:show]
-
   def index
     @offers = Offer.all
   end
 
   def show
-    @offer = Offer.find(params[:id])
-    @booking = Booking.new
-   # @markers = @offers.geocoded.map do |offer|
-   #   {
-   #     lat: offer.latitude,
-   #     lng: offer.longitude,
-   #     info_window: render_to_string(partial: "info_window", locals: {offer: offer})
-   #   }
-   # end
+    # @offer = Offer.new
+    @offers = Offer.where(id: params[:id])
+    @markers = @offers.geocoded.map do |offer|
+      {
+        lat: offer.latitude,
+        lng: offer.longitude,
+        info_window: render_to_string(partial: "info_window", locals: {offer: offer})
+      }
+    end
   end
 
   def new
