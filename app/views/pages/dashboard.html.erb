@@ -1,27 +1,36 @@
-<div class="container">
-  <h2> Cher <%=current_user.first_name %> <%=current_user.last_name %> </h2>
+<div class="container card-grey">
+  <div class="d-flex align-items-center" style="height: 150px;">
+    <h2> Salut <%=current_user.first_name %>  - Ton Tableau bord</h2>
+  </div>
 <div class="row">
-  <div class="px-4 col-4 border-end border-start border-dark border-1">
+  <div class="px-4 col-4">
     <h3> Ce que vous proposez </h3>
     <ul>
       <% current_user.offers.each do |offer| %>
         <li><%= offer.name %></li>
         <%= image_tag offer.image_url %>
       <% end %>
-      <%= link_to "Ajouter un nouveau service", root_path, class: "btn btn-primary" %>
+      <%= link_to "Ajouter une proposition", root_path, class: "btn btn-secondary" %>
     </ul>
   </div>
-  <div class="px-4 col-4 border-end border-dark border-1">
-    <h3> Vous avez dit oui aux Kimoun</h3>
-  </div>
-  <div class="px-4 col-4 border-end border-dark border-1">
-    <h3> Les Kimoun qui vous ont dit oui </h3>
-    <% @bookings.each do |booking| %>
+  <div class="px-4 col-4 border-start border-end border-dark border-1">
+    <h3> Vos engagements de service</h3>
+    <% @bookings_as_owner.each do |booking| %>
+    <p> <strong><%=booking.offer.name%></strong> pour le Kimoun <%=booking.offer.user.first_name%> </p>
       <ul>
-        <li>Le service  : <%=booking.offer.name%></li>
-        <li>sera réalisé par : <%=booking.offer.user.first_name%> <%=booking.offer.user.last_name%></li>
-        <li>Début de la prestation/location : <%=booking.start_time%></li>
-        <li>Fin de la prestation/location  : <%=booking.end_time%></li>
+        <li>du : <%=booking.start_time%></li>
+        <li>au : <%=booking.end_time%></li>
+      </ul>
+    <% end %>
+  </div>
+  <div class="px-4 col-4">
+    <h3> Vos demandes de service </h3>
+    <% @bookings.each do |booking| %>
+    <p> <strong><%=booking.offer.name%></strong></p>
+    <p>Le Kimoun <%=booking.offer.user.first_name%> <%=booking.offer.user.last_name%> s'est engagé </p>
+      <ul>
+        <li>du : <%=booking.start_time%></li>
+        <li>au : <%=booking.end_time%></li>
       </ul>
     <% end %>
   </div>
