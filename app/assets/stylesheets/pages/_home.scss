@@ -1,1 +1,8 @@
 // Specific CSS for your home-page
+.typed-cursor{
+  display: none!important;
+}
+
+.typed-cursor .typed-cursor--blink{
+  display: none!important;
+}
