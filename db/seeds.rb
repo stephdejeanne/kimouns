@@ -22,8 +22,8 @@ offer_b = Offer.create!(user_id: user_b.id, name: "tonte", category: "jardinage"
 offer_c = Offer.create!(user_id: user_c.id, name: "carrelage", category: "bricolage", description: "")
 offer_d = Offer.create!(user_id: user_d.id, name: "peinture", category: "bricolage", description: "")
 offer_e = Offer.create!(user_id: user_a.id, name: "maçonnerie", category: "bricolage", description: "je réalise des murs en parpaing, en briques, en béton")
-offer_f = Offer.create!(user_id: user_b.id, name: "couturier", category: "couture", description: "besoin de modifier, d'adapter ou de retoucher vos vêtements")
-offer_g = Offer.create!(user_id: user_c.id, name: "montage de meuble", category: "bricologe", description: "je vous aide à monter les armoires, les lits et les placards quelque soit la marque ou le modèle !")
+offer_f = Offer.create!(user_id: user_b.id, name: "préparation de gamelle", category: "cuisine", description: "je prépare des plats pour ma famille tous les jours et vous propose les surplus sous forme de gamelle")
+offer_g = Offer.create!(user_id: user_c.id, name: "montage de meuble", category: "bricolage", description: "je vous aide à monter les armoires, les lits et les placards quelque soit la marque ou le modèle !")
 offer_h = Offer.create!(user_id: user_d.id, name: "donne des fruits", category: "jardinage", description: "j'ai des mangues à donner")
 
 
