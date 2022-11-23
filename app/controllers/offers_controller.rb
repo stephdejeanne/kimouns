@@ -14,4 +14,30 @@ class OffersController < ApplicationController
       }
     end
   end
+
+  def new
+    @offer = Offer.new
+  end
+
+  def create
+    @offer = Offer.new(offer_params)
+    @offer.save!
+    redirect_to offer_path(@offer)
+  end
+
+  def update
+    @offer.update(offer_params)
+    redirect_to offer_path(@offer)
+  end
+
+  def destroy
+    @offer.destroy
+    redirect_to offers_path
+  end
+  
+  private
+
+  def set_offer
+    params.require(:offer).permit(:name, :category, :description, :user_id)
+  end
 end
