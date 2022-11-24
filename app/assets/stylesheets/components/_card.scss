@@ -5,15 +5,18 @@
 .card-grey {
   background-color: #dee7e7;
 }
+
 .youpi {
   display: flex;
 }
+
 .card {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   display: inline-block;
   margin: 10px;
 }
+
 #img-card{
  height: 286px;
 }
@@ -26,4 +29,14 @@
   grid-template-rows: 80px auto 80px;
   column-gap: 10px;
   row-gap: 15px;
+}
+
+.card-dashboard {
+  border-radius: 0.95rem;
+  border:3px solid	#228b22;
+  margin: 10px 0;
+}
+
+.img-border-top {
+  border-radius: 0.75rem 0.75rem 0 0;
 }
