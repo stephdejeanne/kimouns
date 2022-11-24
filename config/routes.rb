@@ -6,6 +6,9 @@ Rails.application.routes.draw do
     resources :bookings, only: :create
   end
 
+  resources :bookings, only: :show
+
   get '/dashboard', to: 'pages#dashboard', as: :dashboard
   get 'profile', to: 'pages#profile', as: :profile
 end
+
