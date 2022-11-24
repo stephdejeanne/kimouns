@@ -12,6 +12,14 @@
           <% else %>
           <%= current_user.first_name %></h5>
         <% end %>
+        <% if current_user.nil? %>
+        <% else %>
+          <% if current_user.photo.attached? %>
+            <%= cl_image_tag current_user.photo.key, height: 80, width: 80, crop: :fill, class: "rounded-circle" %>
+          <% else %>
+            <img style="width: 80px; height: 80px; border-radius: 100px;" src="https://res.cloudinary.com/demo/image/upload/c_thumb,g_face,h_250,w_250/docs/model.jpg">
+          <% end %>
+        <% end %>
         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
       </div>
       <div class="offcanvas-body">
