@@ -12,16 +12,11 @@
       <div class="offcanvas-body">
         <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
           <li class="nav-item">
-          
-            <a class="nav-link active" aria-current="page" href="#">Accueil</a>
-
-            <%= link_to 'Se déconnecter', destroy_user_session_path, data: { turbo_method: 'delete' } %>
+            <a class="nav-link active" aria-current="page" href="/">Accueil</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
-
+            <a class="nav-link" href="/profile">Profile</a>
           </li>
-
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Tableau de bord
@@ -35,6 +30,7 @@
               <li><a class="dropdown-item" href="#">Mes favoris</a></li>
             </ul>
           </li>
+            <%= link_to 'Se déconnecter', destroy_user_session_path, data: { turbo_method: 'delete' } %>
         </ul>
         <form class="d-flex mt-3" role="Que recherchez vous ?">
           <input class="form-control me-2" type="Que recherchez vous ?" placeholder="Que recherchez vous ?" aria-label="Que recherchez vous ?">

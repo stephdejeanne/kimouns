@@ -1,6 +1,7 @@
 import { Controller } from "@hotwired/stimulus"
-import MapboxGeocoder from "@mapbox/mapbox-gl-geocoder"
+// import MapboxGeocoder from "@mapbox/mapbox-gl-geocoder"
 
+// use data-controller="mapbox" in the view
 export default class extends Controller {
   static values = {
     apiKey: String,
@@ -21,20 +22,9 @@ export default class extends Controller {
   }
   #addMarkersToMap() {
     this.markersValue.forEach((marker) => {
-      const popup = new mapboxgl.Popup().setHTML(marker.info_window)
 
-      // // Create a HTML element for your custom marker
-      // const customMarker = document.createElement("div")
-      // customMarker.className = "marker"
-      // customMarker.style.backgroundImage = `url('${marker.image_url}')`
-      // customMarker.style.backgroundSize = "contain"
-      // customMarker.style.width = "25px"
-      // customMarker.style.height = "25px"
-
-      // Pass the element as an argument to the new marker
       new mapboxgl.Marker()
         .setLngLat([marker.lng, marker.lat])
-        .setPopup(popup)
         .addTo(this.map)
     })
   }
