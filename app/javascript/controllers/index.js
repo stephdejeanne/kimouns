@@ -16,5 +16,9 @@ application.register("hello", HelloController)
 import MapController from "./map_controller"
 application.register("map", MapController)
 
+
+import MapboxController from "./mapbox_controller"
+application.register("mapbox", MapboxController)
+
 import TypedJsController from "./typed_js_controller"
 application.register("typed-js", TypedJsController)

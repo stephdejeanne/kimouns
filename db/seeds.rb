@@ -13,16 +13,16 @@ User.destroy_all
 
 # Création des utilisateurs
 
-user_a = User.create!(first_name: "kelly", last_name: "nerestan", email: "kelly@gmail.com", password: "123456")
-user_b = User.create!(first_name: "alain", last_name: "deloin", email: "alain@gmail.com", password: "123456")
-user_c = User.create!(first_name: "garry", last_name: "gabin", email: "garry@gmail.com", password: "123456")
-user_d = User.create!(first_name: "steph", last_name: "chaigneau", email: "steph@gmail.com", password: "123456")
+user_a = User.create!(first_name: "kelly", last_name: "nerestan", email: "kelly@gmail.com", password: "123456", address: "Rue de la République, 97200 Fort-de-France")
+user_b = User.create!(first_name: "alain", last_name: "deloin", email: "alain@gmail.com", password: "123456", address: "Rue de la République, 97200 Fort-de-France")
+user_c = User.create!(first_name: "garry", last_name: "gabin", email: "garry@gmail.com", password: "123456", address: "Habitation Petit Morne, 97232 Le Lamentin")
+user_d = User.create!(first_name: "steph", last_name: "chaigneau", email: "steph@gmail.com", password: "123456", address: "Habitation Petit Morne, 97232 Le Lamentin")
 
 
-offer_a = Offer.create!(user_id: user_a.id, name: "débroussaillage", category: "jardinage", description: "", address: "Habitation Petit Morne, 97232 Le Lamentin")
-offer_b = Offer.create!(user_id: user_b.id, name: "tonte", category: "jardinage", description: "", address: "Rue de la République, 97200 Fort-de-France")
-offer_c = Offer.create!(user_id: user_c.id, name: "carrelage", category: "bricolage", description: "", address: "Habitation Petit Morne, 97232 Le Lamentin")
-offer_d = Offer.create!(user_id: user_d.id, name: "peinture", category: "bricolage", description: "", address: "Rue de la République, 97200 Fort-de-France")
+offer_a = Offer.create!(user_id: user_a.id, name: "débroussaillage", category: "jardinage", description: "Bonjour, je cherche quelqu'un qui peut tailler ma haie", address: "Habitation Petit Morne, 97232 Le Lamentin")
+offer_b = Offer.create!(user_id: user_b.id, name: "tonte", category: "jardinage", description: "Bonjour, je suis à la recheerche d'une personne pouvant tondre mon gazon", address: "Rue de la République, 97200 Fort-de-France")
+offer_c = Offer.create!(user_id: user_c.id, name: "carrelage", category: "bricolage", description: "Bonjour je cherche quelqu'un qui pourrait finir le carrelage de ma salle de bain", address: "Habitation Petit Morne, 97232 Le Lamentin")
+offer_d = Offer.create!(user_id: user_d.id, name: "peinture", category: "bricolage", description: "Bonjour je cherche un peintre pour peindre ma cuisine", address: "Rue de la République, 97200 Fort-de-France")
 offer_e = Offer.create!(user_id: user_a.id, name: "maçonnerie", category: "bricolage", description: "je réalise des murs en parpaing, en briques, en béton", address: "Rue de la République, 97200 Fort-de-France")
 offer_f = Offer.create!(user_id: user_b.id, name: "couturier", category: "couture", description: "besoin de modifier, d'adapter ou de retoucher vos vêtements", address: "Habitation Petit Morne, 97232 Le Lamentin")
 offer_g = Offer.create!(user_id: user_c.id, name: "montage de meuble", category: "bricolage", description: "je vous aide à monter les armoires, les lits et les placards quelque soit la marque ou le modèle !", address: "Rue de la République, 97200 Fort-de-France")
