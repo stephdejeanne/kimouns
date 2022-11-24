@@ -1,39 +1,70 @@
-<div class="container card-grey">
-  <div class="d-flex align-items-center" style="height: 150px;">
-    <h2> Salut <%=current_user.first_name %>  - Ton Tableau bord</h2>
+<div class="container">
+  <div class="d-flex align-items-center" style="height: 150px; card-grey">
+    <h2>Salut <%=current_user.first_name %>  - Ton Tableau bord</h2>
   </div>
-<div class="row">
-  <div class="px-4 col-4">
-    <h3> Ce que vous proposez </h3>
-    <ul>
-      <% current_user.offers.each do |offer| %>
-        <li><%= offer.name %></li>
-        <%= image_tag offer.image_url %>
+  <div class="row">
+
+  <!-- VOS SAVOIR FAIRE -->
+    <div class="px-4 col-4">
+      <h3> Vos savoir-faire </h3>
+      <ul class="ps-0">
+        <% current_user.offers.each do |offer| %>
+        <div class="card card-dashboard w-100" style="width: 18rem;">
+        <%= image_tag offer.image_url, class: 'card-img-top img-border-top', alt: 'photo de la catégorie de l\'offre' %>
+          <div class="card-body">
+            <p class="card-text">
+              <strong><%= offer.name %> : </strong>
+              <%= offer.description %>
+            </p>
+          </div>
+        </div>
+        <% end %>
+        <%= link_to "Ajouter un savoir-faire", root_path, class: "btn btn-success button-dashboard" %>
+      </ul>
+    </div>
+
+    <!-- VOS ENGAGEMENTS DE SERVICES -->
+    <div class="px-4 col-4 border-start border-end border-dark border-1">
+      <h3> Vos engagements de service</h3>
+      <% @bookings_as_owner.each do |booking| %>
+      <div class="card card-dashboard w-100">
+          <div class="card-header">
+            <strong><%=booking.offer.name%></strong>
+          </div>
+          <div class="card-body" style="display: flex; flex-direction: column;">
+          <h5 class="card-title">pour le Kimoun <%=booking.user.first_name%></h5>
+          <p class="card-text">
+          <ul>
+            <li>du : <%=booking.start_time%></li>
+            <li>au : <%=booking.end_time%></li>
+          </ul>
+          </p>
+          <a href="#" class="btn btn-success button-dashboard" style="align-self: flex-end; margin-top:0;">Voir l'arrangement</a>
+          </div>
+          </div>
       <% end %>
-      <%= link_to "Ajouter une proposition", root_path, class: "btn btn-secondary" %>
-    </ul>
-  </div>
-  <div class="px-4 col-4 border-start border-end border-dark border-1">
-    <h3> Vos engagements de service</h3>
-    <% @bookings_as_owner.each do |booking| %>
-    <p> <strong><%=booking.offer.name%></strong> pour le Kimoun <%=booking.offer.user.first_name%> </p>
-      <ul>
-        <li>du : <%=booking.start_time%></li>
-        <li>au : <%=booking.end_time%></li>
-      </ul>
+    </div>
+
+  <!-- VOS DEMANDES DE SERVICES -->
+    <div class="px-4 col-4">
+      <h3> Vos demandes de service </h3>
+      <% @bookings.each do |booking| %>
+        <div class="card card-dashboard w-100">
+          <div class="card-header">
+          <strong><%=booking.offer.name%></strong>
+          </div>
+        <div class="card-body" style="display: flex; flex-direction: column;">
+          <h5 class="card-title">Le Kimoun <%=booking.offer.user.first_name%> <%=booking.offer.user.last_name%> s'est engagé</h5>
+          <p class="card-text">
+            <ul>
+              <li>du : <%=booking.start_time%></li>
+              <li>au : <%=booking.end_time%></li>
+            </ul>
+          </p>
+          <a href="#" class="btn btn-success button-dashboard" style="align-self: flex-end; margin-top:0;">Voir l'arrangement</a>
+        </div>
+      </div>
     <% end %>
+    </div>
   </div>
-  <div class="px-4 col-4">
-    <h3> Vos demandes de service </h3>
-    <% @bookings.each do |booking| %>
-    <p> <strong><%=booking.offer.name%></strong></p>
-    <p>Le Kimoun <%=booking.offer.user.first_name%> <%=booking.offer.user.last_name%> s'est engagé </p>
-      <ul>
-        <li>du : <%=booking.start_time%></li>
-        <li>au : <%=booking.end_time%></li>
-      </ul>
-    <% end %>
-  </div>
-</div>
-<%= link_to "Retourner à la page d'accueil", root_path, class: "btn btn-primary" %>
 </div>
