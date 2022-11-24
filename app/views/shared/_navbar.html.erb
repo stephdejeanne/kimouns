@@ -7,18 +7,24 @@
     <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
       <div class="offcanvas-header">
         <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel"> Ajouter nom d'utilisateur -¨_¨</h5>
+        <%= link_to 'Se déconnecter', destroy_user_session_path, data: { turbo_method: 'delete' } %>
+
         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
       </div>
       <div class="offcanvas-body">
         <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
           <li class="nav-item">
-          
+
             <a class="nav-link active" aria-current="page" href="#">Accueil</a>
 
-            <%= link_to 'Se déconnecter', destroy_user_session_path, data: { turbo_method: 'delete' } %>
+            <a class="nav-link active" aria-current="page" href="#">Mon profil</a>
+
+            <a class="nav-link" href="#">Consulter les offres</a>
+
+
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
+
 
           </li>
 
@@ -38,6 +44,7 @@
         </ul>
         <form class="d-flex mt-3" role="Que recherchez vous ?">
           <input class="form-control me-2" type="Que recherchez vous ?" placeholder="Que recherchez vous ?" aria-label="Que recherchez vous ?">
+
           <button class="btn btn-success" type="submit">Rechercher</button>
         </form>
       </div>
