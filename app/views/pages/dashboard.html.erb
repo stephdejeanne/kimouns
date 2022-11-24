@@ -28,10 +28,10 @@
       <h3> Vos engagements de service</h3>
       <% @bookings_as_owner.each do |booking| %>
       <div class="card card-dashboard w-100">
-          <div class="card-header">
-            <strong><%=booking.offer.name%></strong>
-          </div>
-          <div class="card-body" style="display: flex; flex-direction: column;">
+        <div class="card-header">
+          <strong><%=booking.offer.name%></strong>
+        </div>
+        <div class="card-body" style="display: flex; flex-direction: column;">
           <h5 class="card-title">pour le Kimoun <%=booking.user.first_name%></h5>
           <p class="card-text">
           <ul>
@@ -39,9 +39,11 @@
             <li>au : <%=booking.end_time%></li>
           </ul>
           </p>
-          <a href="#" class="btn btn-success button-dashboard" style="align-self: flex-end; margin-top:0;">Voir l'arrangement</a>
+          <span style="align-self: flex-end; margin-top:0;">
+            <%= link_to "Voir l'arrangement", booking_path(booking), class: "btn btn-success button-dashboard" %>
+          </span>
           </div>
-          </div>
+        </div>
       <% end %>
     </div>
 
@@ -61,7 +63,9 @@
               <li>au : <%=booking.end_time%></li>
             </ul>
           </p>
-          <a href="#" class="btn btn-success button-dashboard" style="align-self: flex-end; margin-top:0;">Voir l'arrangement</a>
+          <span style="align-self: flex-end; margin-top:0;">
+            <%= link_to "Voir l'arrangement", booking_path(booking), class: "btn btn-success button-dashboard" %>
+          </span>
         </div>
       </div>
     <% end %>
