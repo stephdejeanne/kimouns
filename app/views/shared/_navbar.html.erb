@@ -29,8 +29,8 @@
               </li>
               <li><a class="dropdown-item" href="#">Mes favoris</a></li>
             </ul>
+            <%= link_to 'Se déconnecter', destroy_user_session_path, data: { turbo_method: :delete } %>
           </li>
-            <%= link_to 'Se déconnecter', destroy_user_session_path, data: { turbo_method: 'delete' } %>
         </ul>
         <form class="d-flex mt-3" role="Que recherchez vous ?">
           <input class="form-control me-2" type="Que recherchez vous ?" placeholder="Que recherchez vous ?" aria-label="Que recherchez vous ?">
