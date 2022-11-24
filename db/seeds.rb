@@ -13,10 +13,10 @@ User.destroy_all
 
 # Création des utilisateurs
 
-user_a = User.create!(first_name: "kelly", last_name: "nerestan", email: "kelly@gmail.com", password: "123456")
-user_b = User.create!(first_name: "alain", last_name: "deloin", email: "alain@gmail.com", password: "123456")
-user_c = User.create!(first_name: "garry", last_name: "gabin", email: "garry@gmail.com", password: "123456")
-user_d = User.create!(first_name: "steph", last_name: "chaigneau", email: "steph@gmail.com", password: "123456")
+user_a = User.create!(first_name: "kelly", last_name: "nerestan", email: "kelly@gmail.com", password: "123456", address: "Rue de la République, 97200 Fort-de-France")
+user_b = User.create!(first_name: "alain", last_name: "deloin", email: "alain@gmail.com", password: "123456", address: "Rue de la République, 97200 Fort-de-France")
+user_c = User.create!(first_name: "garry", last_name: "gabin", email: "garry@gmail.com", password: "123456", address: "Habitation Petit Morne, 97232 Le Lamentin")
+user_d = User.create!(first_name: "steph", last_name: "chaigneau", email: "steph@gmail.com", password: "123456", address: "Habitation Petit Morne, 97232 Le Lamentin")
 
 
 offer_a = Offer.create!(user_id: user_a.id, name: "débroussaillage", category: "jardinage", description: "", address: "Habitation Petit Morne, 97232 Le Lamentin")
