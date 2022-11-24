@@ -18,9 +18,9 @@ class BookingsController < ApplicationController
     @booking.offer = @offer
     @booking.user = current_user
     if @booking.save
-      redirect_to offer_bookings_path(@offer)
+      redirect_to booking_path(@booking)
     else
-      render :new
+      render 'offers/show', status: :unprocessable_entity
     end
   end
 
@@ -31,7 +31,7 @@ class BookingsController < ApplicationController
   end
 
   def booking_params
-    params.require(:booking).permit(:start, :end)
+    params.require(:booking).permit(:start_time, :end_time)
   end
 
   def set_booking

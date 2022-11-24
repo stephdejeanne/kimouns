@@ -7,6 +7,7 @@ class OffersController < ApplicationController
     # @offer = Offer.new
     @offer = Offer.find(params[:id])
     @offers = Offer.where(id: params[:id])
+    @booking = Booking.new
     @markers = @offers.geocoded.map do |offer|
       {
         lat: offer.latitude,

@@ -7,13 +7,14 @@ import { application } from "./application"
 import AddressAutocompleteController from "./address_autocomplete_controller"
 application.register("address-autocomplete", AddressAutocompleteController)
 
+import FlatpickrController from "./flatpickr_controller"
+application.register("flatpickr", FlatpickrController)
+
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
-
-
-import TypedJsController from "./typed_js_controller"
-application.register("typed-js", TypedJsController)
 
 import MapController from "./map_controller"
 application.register("map", MapController)
 
+import TypedJsController from "./typed_js_controller"
+application.register("typed-js", TypedJsController)
