@@ -1,28 +1,81 @@
-
-
-<div class = "container">
-  <div class="banner-show" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/background.png);">
-    <div class="container">
-      <h1>Mon offre : <strong><%= @offer.name %></strong> !</h1>
-      <p> <%= @offer.description %> </p>
-    </div>
+<div class="banner-show" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/background.png);">
+  <div class="container">
+    <h1>Mon offre : <strong><%= @offer.name %></strong> !</h1>
+    <p> <%= @offer.description %> </p>
+  </div>
 </div>
 
-<a class="btn btn-flat" href="#">Je réserve</a>
 
-<div class="container">
-  <h1>Offers#show</h1>
-  <p>Find me in app/views/offers/show.html.erb</p>
+
+
+<div class="container mt-5">
+
   <div class="row">
-    <div class="col-4">
+
+    <div class="reviews-container flex flex-column col-4">
+      <div class="reviews-header">
+        <h2>Commentaires</h2>
+      </div>
+      <div class="reviews-content">
+        <div class="review">
+          <div class="review-header">
+            <div class="review-header-left">
+              <div class="review-header-left-top">
+                <h3>John Doe</h3>
+                <p>5/5</p>
+              </div>
+              <div class="review-header-left-bottom">
+                <p>Le 01/01/2020</p>
+              </div>
+            </div>
+            <div class="review-header-right">
+              <p>Super !</p>
+            </div>
+          </div>
+          <div class="review-content">
+            <p>Super !</p>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="col-8">
+
+    <div class="col-8 pe-0">
+
       <div class="show-map-container">
         <div style="width: 100%; height: 100%;"
           data-controller="map"
           data-map-markers-value="<%= @markers.to_json %>"
           data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
       </div>
+
     </div>
+  </div>
+
+  <div class="row">
+    <%= simple_form_for [@offer, @booking],
+                      html: {
+                        class: 'form-booking',
+                        data: {
+                          controller: 'flatpickr'
+                        }
+                      } do |f| %>
+      <div class="d-flex justify-content-around">
+        <%= f.input :start_time,
+                    as: :string,
+                      input_html: {
+                        data: {
+                          flatpickr_target: 'startDateInput',
+                        }
+                      } %>
+        <%= f.input :end_time,
+                    as: :string,
+                    input_html: {
+                      data: {
+                        flatpickr_target: 'endDateInput'
+                      }
+                    } %>
+      </div>
+      <%= f.submit 'Réservez Maintenant!', class: 'btn btn-primary' %>
+    <% end %>
   </div>
 </div>
