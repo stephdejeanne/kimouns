@@ -27,9 +27,9 @@
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="/">Accueil</a>
           </li>
-          <a class="nav-link active" aria-current="page" href="profile">Profil</a>
-          <a class="nav-link active" aria-current="page" href="offers">Les offres</a>
-          <a class="nav-link active" aria-current="page" href="dashboard">Tableau bord</a>
+          <%= link_to 'Profil', profile_path, class: 'nav-link active', aria_current: 'page' %>
+          <%= link_to 'Les offres', offers_path, class: 'nav-link active', aria_current: 'page' %>
+          <%= link_to 'Tableau de bord', dashboard_path, class: 'nav-link active', aria_current: 'page' %>
 
           </li>
 
