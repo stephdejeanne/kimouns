@@ -10,3 +10,13 @@
     </p>
   </div>
 </div>
+
+<%# formulaire de crétion de review %>
+
+<p><strong>Reviews</strong></p>
+<ul class="list-group">
+  <% @restaurant.reviews.each do |review| %>
+    <li class="list-group-item"><%= review.content %></li>
+  <% end %>
+</ul>
+<br>
