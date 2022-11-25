@@ -1,12 +1,18 @@
-<div class="banner">
-  <div class="container">
+<div class="container">
+  <div class="d-flex align-items-center" style="height: 150px; card-grey">
+    <h2> Propositions d'offres</h2>
+  </div>
+  <div class="row">
     <% @offers.each do |offer| %>
-      <div class="card" style="width: 18rem;">
-        <img id="img-card" src="<%= offer.image_url %>" class="card-img-top" alt="<%= offer.name %>">
+      <div class="card card-offer">
+        <img id="img-card" src="<%= offer.image_url %>" class="card-img-top img-border-top" alt="<%= offer.name %>">
         <div class="card-body">
-          <h5 class="card-title"><%= offer.name %></h5>
+          <div id="dispo" class="d-flex">
+            <h5 class="card-title"><%= offer.name %></h5>
+            <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+          </div>
           <p id="text-card" class="card-text"><%= offer.category %></p>
-          <p id="text-card" class="card-text"><%= offer.description %></p>
+          <p id="text-card" class="card-text text-truncate d-block"><%= offer.description %></p>
           <%= link_to "Sélectionner", offer_path(offer), class: "btn btn-success" %>
         </div>
       </div>
