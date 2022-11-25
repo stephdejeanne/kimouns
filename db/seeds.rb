@@ -13,30 +13,45 @@ User.destroy_all
 
 # Création des utilisateurs
 
-user_a = User.create!(first_name: "kelly", last_name: "nerestan", email: "kelly@gmail.com", password: "123456", address: "Rue de la République, 97200 Fort-de-France")
-user_b = User.create!(first_name: "alain", last_name: "deloin", email: "alain@gmail.com", password: "123456", address: "Rue de la République, 97200 Fort-de-France")
-user_c = User.create!(first_name: "garry", last_name: "gabin", email: "garry@gmail.com", password: "123456", address: "Habitation Petit Morne, 97232 Le Lamentin")
-user_d = User.create!(first_name: "steph", last_name: "chaigneau", email: "steph@gmail.com", password: "123456", address: "Habitation Petit Morne, 97232 Le Lamentin")
+user_a = User.create!(first_name: "Kelly", last_name: "NERESTAN", email: "kelly@gmail.com", password: "123456", address: "Rue de la République, 97200 Fort-de-France")
+user_b = User.create!(first_name: "Alain", last_name: "DELOIN", email: "alain@gmail.com", password: "123456", address: "Rue de la République, 97200 Fort-de-France")
+user_c = User.create!(first_name: "Garry", last_name: "GABIN", email: "garry@gmail.com", password: "123456", address: "Habitation Petit Morne, 97232 Le Lamentin")
+user_d = User.create!(first_name: "Stéphane", last_name: "CHAIGNEAU", email: "steph@gmail.com", password: "123456", address: "Habitation Petit Morne, 97232 Le Lamentin")
+user_e = User.create!(first_name: "Mamie", last_name: "COCO", email: "mamie@gmail.com", password: "123456", address: "Habitation Petit Morne, 97232 Le Lamentin")
+user_f = User.create!(first_name: "Tonton", last_name: "BRICOL", email: "tonton@gmail.com", password: "123456", address: "Rue de la République, 97200 Fort-de-France")
+user_g = User.create!(first_name: "Phil", last_name: "ROTO", email: "phil@gmail.com", password: "123456", address: "Habitation Petit Morne, 97232 Le Lamentin")
 
+puts "utilisateurs créés"
 
-offer_a = Offer.create!(user_id: user_a.id, name: "débroussaillage", category: "jardinage", description: "Bonjour, je cherche quelqu'un qui peut tailler ma haie", address: "Habitation Petit Morne, 97232 Le Lamentin")
-offer_b = Offer.create!(user_id: user_b.id, name: "tonte", category: "jardinage", description: "Bonjour, je suis à la recheerche d'une personne pouvant tondre mon gazon", address: "Rue de la République, 97200 Fort-de-France")
-offer_c = Offer.create!(user_id: user_c.id, name: "carrelage", category: "bricolage", description: "Bonjour je cherche quelqu'un qui pourrait finir le carrelage de ma salle de bain", address: "Habitation Petit Morne, 97232 Le Lamentin")
-offer_d = Offer.create!(user_id: user_d.id, name: "peinture", category: "bricolage", description: "Bonjour je cherche un peintre pour peindre ma cuisine", address: "Rue de la République, 97200 Fort-de-France")
-offer_e = Offer.create!(user_id: user_a.id, name: "maçonnerie", category: "bricolage", description: "je réalise des murs en parpaing, en briques, en béton", address: "Rue de la République, 97200 Fort-de-France")
-offer_f = Offer.create!(user_id: user_b.id, name: "couturier", category: "couture", description: "besoin de modifier, d'adapter ou de retoucher vos vêtements", address: "Habitation Petit Morne, 97232 Le Lamentin")
-offer_g = Offer.create!(user_id: user_c.id, name: "montage de meuble", category: "bricolage", description: "je vous aide à monter les armoires, les lits et les placards quelque soit la marque ou le modèle !", address: "Rue de la République, 97200 Fort-de-France")
-offer_h = Offer.create!(user_id: user_d.id, name: "donne des fruits", category: "jardinage", description: "j'ai des mangues à donner", address: "Habitation Petit Morne, 97232 Le Lamentin")
+offer_a = Offer.create!(user_id: user_a.id, name: "développement full stack", category: "informatique", description: "Bonjour, je m'appelle Kelly et je propose de vous faire votre market-place", address: "Habitation Petit Morne, 97232 Le Lamentin")
+offer_b = Offer.create!(user_id: user_b.id, name: "développement full stack", category: "informatique", description: "Hello, je m'appelle Alain et je vous propose de vous faire votre market-place", address: "Rue de la République, 97200 Fort-de-France")
+offer_c = Offer.create!(user_id: user_c.id, name: "développement full stack", category: "informatique", description: "Salut, je m'appelle Garry et je vous propose de vous faire votre market-place", address: "Habitation Petit Morne, 97232 Le Lamentin")
+offer_d = Offer.create!(user_id: user_d.id, name: "développement full stack", category: "informatique", description: "Bonjour, je m'appelle Stéph et je propose de vous faire votre market-place", address: "Rue de la République, 97200 Fort-de-France")
+offer_e = Offer.create!(user_id: user_e.id, name: "préparation de douceur", category: "cuisine", description: "Hello, c'est Mamie Coco et je vous propose de bons desserts pays", address: "Rue de la République, 97200 Fort-de-France")
+offer_f = Offer.create!(user_id: user_b.id, name: "montage de meuble", category: "bricolage", description: "Coucou c'est Tonton BRICOL, toujours là pour vos meubles", address: "Habitation Petit Morne, 97232 Le Lamentin")
+offer_g = Offer.create!(user_id: user_c.id, name: "débrousaillage", category: "jardinage", description: "Phil ROTO : coupe, rammasse et évacue les herbes", address: "Rue de la République, 97200 Fort-de-France")
+offer_h = Offer.create!(user_id: user_a.id, name: "coaching sportif", category: "sport", description: "Bonjour, je m'appelle Kelly et je vous propose du coaching sportif", address: "Habitation Petit Morne, 97232 Le Lamentin")
+offer_i = Offer.create!(user_id: user_b.id, name: "partenaire de jogging", category: "sport", description: "C'est Alain, pour faire un petit jogging ensemble", address: "Habitation Petit Morne, 97232 Le Lamentin")
+offer_j = Offer.create!(user_id: user_c.id, name: "prêt d'altère", category: "sport", description: "Hello, c'est Garry et j'ai tout un jeu d'altère si vous en avez besoin", address: "Habitation Petit Morne, 97232 Le Lamentin")
+offer_k = Offer.create!(user_id: user_d.id, name: "rando sous-marine", category: "sport", description: "Coucou, c'est Steph à votre disposition pour vous guider dans une rando sous-marine", address: "Habitation Petit Morne, 97232 Le Lamentin")
 
+puts "offres créées"
 # Création des demandes ou réservations
 
-booking_a = Booking.create!(user_id: user_a.id, offer_id: offer_b.id, start_time: "2021-11-21", end_time: "2021-11-22")
-booking_b = Booking.create!(user_id: user_b.id, offer_id: offer_a.id, start_time: "2021-11-21", end_time: "2021-11-22")
-booking_c = Booking.create!(user_id: user_c.id, offer_id: offer_d.id, start_time: "2021-11-21", end_time: "2021-11-22")
+booking_a = Booking.create!(user_id: user_a.id, offer_id: offer_e.id, start_time: "2021-11-21", end_time: "2021-11-22")
+booking_b = Booking.create!(user_id: user_b.id, offer_id: offer_f.id, start_time: "2021-11-21", end_time: "2021-11-22")
+booking_c = Booking.create!(user_id: user_c.id, offer_id: offer_g.id, start_time: "2021-11-21", end_time: "2021-11-22")
 booking_d = Booking.create!(user_id: user_d.id, offer_id: offer_e.id, start_time: "2021-11-21", end_time: "2021-11-22")
-booking_e = Booking.create!(user_id: user_a.id, offer_id: offer_f.id, start_time: "2021-11-21", end_time: "2021-11-22")
-booking_f = Booking.create!(user_id: user_b.id, offer_id: offer_c.id, start_time: "2021-11-21", end_time: "2021-11-22")
-booking_g = Booking.create!(user_id: user_c.id, offer_id: offer_h.id, start_time: "2021-11-21", end_time: "2021-11-22")
-booking_h = Booking.create!(user_id: user_c.id, offer_id: offer_h.id, start_time: "2021-11-21", end_time: "2021-11-22")
+booking_e = Booking.create!(user_id: user_e.id, offer_id: offer_a.id, start_time: "2021-11-21", end_time: "2021-11-22")
+booking_f = Booking.create!(user_id: user_f.id, offer_id: offer_b.id, start_time: "2021-11-21", end_time: "2021-11-22")
+booking_g = Booking.create!(user_id: user_g.id, offer_id: offer_c.id, start_time: "2021-11-21", end_time: "2021-11-22")
+booking_h = Booking.create!(user_id: user_a.id, offer_id: offer_k.id, start_time: "2021-11-21", end_time: "2021-11-22")
+booking_i = Booking.create!(user_id: user_b.id, offer_id: offer_j.id, start_time: "2021-11-21", end_time: "2021-11-22")
+booking_k = Booking.create!(user_id: user_c.id, offer_id: offer_h.id, start_time: "2021-11-21", end_time: "2021-11-22")
+booking_l = Booking.create!(user_id: user_d.id, offer_id: offer_i.id, start_time: "2021-11-21", end_time: "2021-11-22")
+booking_m = Booking.create!(user_id: user_e.id, offer_id: offer_k.id, start_time: "2021-11-21", end_time: "2021-11-22")
+booking_n = Booking.create!(user_id: user_f.id, offer_id: offer_i.id, start_time: "2021-11-21", end_time: "2021-11-22")
 
+
+puts "réservations créées"
 puts "terminé"
