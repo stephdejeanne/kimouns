@@ -5,13 +5,13 @@
   <div class="row">
     <% @offers.each do |offer| %>
       <div class="card card-offer">
-        <img id="img-card" src="<%= offer.image_url %>" class="card-img-top img-border-top" alt="<%= offer.name %>">
+        <img id="img-card" src="<%= offer.image_url %>" class="card-img-top img-border-top" alt="<%= offer.name.upcase %>">
         <div class="card-body">
           <div id="dispo" class="d-flex">
-            <h5 class="card-title"><%= offer.name %></h5>
+            <h5 class="card-title"><span style="color: #fff; background-color: #0b0b70; padding: 2px; border-radius: 4px; font-size: 16px; font-weight: 300px; font-familly: cinzel;"><%= offer.name %></h5></span>
             <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
           </div>
-          <p id="text-card" class="card-text"><%= offer.category %></p>
+          <p id="text-card" class="card-text"><span style="font-size: 18px;"><%= offer.category %></span></p>
           <p id="text-card" class="card-text text-truncate d-block"><%= offer.description %></p>
           <%= link_to "Sélectionner", offer_path(offer), class: "btn btn-success button-index" %>
         </div>
