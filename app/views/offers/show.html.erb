@@ -1,42 +1,16 @@
-<div class="banner-show" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/background.png);">
+<div class="banner-show" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= image_url "cytonn-photography-n95VMLxqM2I-unsplash.jpg" %>);">
   <div class="container">
     <h1>Mon offre : <strong><%= @offer.name %></strong> !</h1>
     <p> <%= @offer.description %> </p>
   </div>
 </div>
 
-
-
-
 <div class="container mt-5">
 
   <div class="row">
 
     <div class="reviews-container flex flex-column col-4">
-      <div class="reviews-header">
-        <h2>Commentaires</h2>
-      </div>
-      <div class="reviews-content">
-        <div class="review">
-          <div class="review-header">
-            <div class="review-header-left">
-              <div class="review-header-left-top">
-                <h3>John Doe</h3>
-                <p>5/5</p>
-              </div>
-              <div class="review-header-left-bottom">
-                <p>Le 01/01/2020</p>
-              </div>
-            </div>
-            <div class="review-header-right">
-              <p>Super !</p>
-            </div>
-          </div>
-          <div class="review-content">
-            <p>Super !</p>
-          </div>
-        </div>
-      </div>
+
     </div>
 
     <div class="col-8 pe-0">
@@ -60,14 +34,14 @@
                         }
                       } do |f| %>
       <div class="d-flex justify-content-around">
-        <%= f.input :start_time,
+        <%= f.input :start_time, :label => "Début de la réservation",
                     as: :string,
                       input_html: {
                         data: {
                           flatpickr_target: 'startDateInput',
                         }
                       } %>
-        <%= f.input :end_time,
+        <%= f.input :end_time, :label => "Fin de la réservation",
                     as: :string,
                     input_html: {
                       data: {
@@ -75,7 +49,7 @@
                       }
                     } %>
       </div>
-      <%= f.submit 'Réservez Maintenant!', class: 'btn btn-primary' %>
+      <%= f.submit 'Réserve maintenant', class: 'btn btn-primary' %>
     <% end %>
   </div>
 </div>
