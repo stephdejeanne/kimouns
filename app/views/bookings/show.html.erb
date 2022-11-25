@@ -1,6 +1,6 @@
 <div class="container">
   <div class="d-flex align-items-center" style="height: 150px; card-grey">
-    <h2>L'arrangement <strong><%= @booking.offer.name %> </strong> entre <%=@booking.offer.user.first_name %>  et vous</h2>
+    <h2>L'arrangement <strong><%= @booking.offer.name %> </strong> entre <%=@booking.offer.user.first_name%>  et vous</h2>
   </div>
 
   <div class="row">
@@ -23,8 +23,46 @@
         </div>
       </div>
     </div>
+
+
   <!-- RECAP DE L'ARRANGEMENT ENTRE LES DEUX -->
+  <div class="px-4 col-4 border-start border-end border-dark border-1">
+      <div class="card card-dashboard w-100">
+        <div class="card-header">
+          <strong>L'arrangement :</strong>
+        </div>
+        <div class="card-body" style="display: flex; flex-direction: column;">
+          <h5 class="card-title"><%=@booking.offer.name%></h5>
+          <p class="card-text">
+          <p <%=@booking.offer.description%>> </p>
+          <ul>
+            <li>du : <%=@booking.start_time%></li>
+            <li>au : <%=@booking.end_time%></li>
+          </ul>
+          </p>
+        </div>
+      </div>
+    </div>
+
 
   <!-- RECAP DU PROFIL DU OFFER_ID -->
+    <div class="px-4 col-4 border-start border-end border-dark border-1">
+      <div class="card card-dashboard w-100">
+        <div class="card-header">
+          <strong>Votre Kimoun :</strong>
+        </div>
+        <div class="card-body" style="display: flex; flex-direction: column;">
+          <h5 class="card-title"><%=@booking.offer.user.first_name%> <%=@booking.offer.user.last_name%></h5>
+          <p class="card-text">
+          <ul>
+            <li>Courriel : <%=@booking.offer.user.email%></li>
+            <li>Tél : <%=@booking.offer.user.phone_number%></li>
+            <li>Adresse : <%=@booking.offer.user.address%></li>
+          </ul>
+          </p>
+        </div>
+      </div>
+    </div>
+
   </div>
 </div>
