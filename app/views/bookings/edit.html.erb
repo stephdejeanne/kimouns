@@ -1,1 +1,58 @@
-<%= render "form", booking: @booking %>
+<div class="banner-show" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= image_url "cytonn-photography-n95VMLxqM2I-unsplash.jpg" %>);">
+  <div class="container">
+    <h1>Mon offre : <strong><%= @offer.name %></strong> !</h1>
+    <p> <%= @offer.description %> </p>
+  </div>
+</div>
+
+<div class="container mt-5">
+
+  <div class="row">
+
+    <div class="reviews-container flex flex-column col-4">
+      <h3>Type d' <span style="color: #fff; background-color: #0b0b70; padding: 2px; border-radius: 4px; font-weight: 300px; font-familly: cinzel;">offre :</span></h3> <%= @offer.name %><br><br>
+      <span style="text-decoration: underline; font-size: 20px; font-style: italic;">Description de l'offre :</span><br><br>
+      <div style="background-color: #fff; padding: 50px; border-radius: 10px;"><%= @offer.description %></div>
+
+    </div>
+
+    <div class="col-8 pe-0">
+
+      <div class="show-map-container">
+        <div style="width: 100%; height: 100%;"
+          data-controller="map"
+          data-map-markers-value="<%= @markers.to_json %>"
+          data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="row">
+    <%= simple_form_for @booking,
+                      html: {
+                        class: 'form-booking',
+                        data: {
+                          controller: 'flatpickr'
+                        }
+                      } do |f| %>
+      <div class="d-flex justify-content-around">
+        <%= f.input :start_time, :label => "Début de la réservation",
+                    as: :string,
+                      input_html: {
+                        data: {
+                          flatpickr_target: 'startDateInput',
+                        }
+                      } %>
+        <%= f.input :end_time, :label => "Fin de la réservation",
+                    as: :string,
+                    input_html: {
+                      data: {
+                        flatpickr_target: 'endDateInput'
+                      }
+                    } %>
+      </div>
+      <%= f.submit 'Mets à jour ta réservation', class: 'btn btn-primary' %>
+    <% end %>
+  </div>
+</div>

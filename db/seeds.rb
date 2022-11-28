@@ -38,19 +38,19 @@ offer_k = Offer.create!(user_id: user_d.id, name: "rando sous-marine", category:
 puts "offres créées"
 # Création des demandes ou réservations
 
-booking_a = Booking.create!(user_id: user_a.id, offer_id: offer_e.id, start_time: "2021-11-21", end_time: "2021-11-22")
-booking_b = Booking.create!(user_id: user_b.id, offer_id: offer_f.id, start_time: "2021-11-21", end_time: "2021-11-22")
-booking_c = Booking.create!(user_id: user_c.id, offer_id: offer_g.id, start_time: "2021-11-21", end_time: "2021-11-22")
-booking_d = Booking.create!(user_id: user_d.id, offer_id: offer_e.id, start_time: "2021-11-21", end_time: "2021-11-22")
-booking_e = Booking.create!(user_id: user_e.id, offer_id: offer_a.id, start_time: "2021-11-21", end_time: "2021-11-22")
-booking_f = Booking.create!(user_id: user_f.id, offer_id: offer_b.id, start_time: "2021-11-21", end_time: "2021-11-22")
-booking_g = Booking.create!(user_id: user_g.id, offer_id: offer_c.id, start_time: "2021-11-21", end_time: "2021-11-22")
-booking_h = Booking.create!(user_id: user_a.id, offer_id: offer_k.id, start_time: "2021-11-21", end_time: "2021-11-22")
-booking_i = Booking.create!(user_id: user_b.id, offer_id: offer_j.id, start_time: "2021-11-21", end_time: "2021-11-22")
-booking_k = Booking.create!(user_id: user_c.id, offer_id: offer_h.id, start_time: "2021-11-21", end_time: "2021-11-22")
-booking_l = Booking.create!(user_id: user_d.id, offer_id: offer_i.id, start_time: "2021-11-21", end_time: "2021-11-22")
-booking_m = Booking.create!(user_id: user_e.id, offer_id: offer_k.id, start_time: "2021-11-21", end_time: "2021-11-22")
-booking_n = Booking.create!(user_id: user_f.id, offer_id: offer_i.id, start_time: "2021-11-21", end_time: "2021-11-22")
+booking_a = Booking.create!(user_id: user_a.id, offer_id: offer_e.id, start_time: DateTime.now + 2.days, end_time: DateTime.now + 5.days)
+booking_b = Booking.create!(user_id: user_b.id, offer_id: offer_f.id, start_time: DateTime.now + 2.days, end_time: DateTime.now + 5.days)
+booking_c = Booking.create!(user_id: user_c.id, offer_id: offer_g.id, start_time: DateTime.now + 2.days, end_time: DateTime.now + 5.days)
+booking_d = Booking.create!(user_id: user_d.id, offer_id: offer_e.id, start_time: DateTime.now + 2.days, end_time: DateTime.now + 5.days)
+booking_e = Booking.create!(user_id: user_e.id, offer_id: offer_a.id, start_time: DateTime.now + 2.days, end_time: DateTime.now + 5.days)
+booking_f = Booking.create!(user_id: user_f.id, offer_id: offer_b.id, start_time: DateTime.now + 2.days, end_time: DateTime.now + 5.days)
+booking_g = Booking.create!(user_id: user_g.id, offer_id: offer_c.id, start_time: DateTime.now + 2.days, end_time: DateTime.now + 5.days)
+booking_h = Booking.create!(user_id: user_a.id, offer_id: offer_k.id, start_time: DateTime.now + 2.days, end_time: DateTime.now + 5.days)
+booking_i = Booking.create!(user_id: user_b.id, offer_id: offer_j.id, start_time: DateTime.now + 2.days, end_time: DateTime.now + 5.days)
+booking_k = Booking.create!(user_id: user_c.id, offer_id: offer_h.id, start_time: DateTime.now + 2.days, end_time: DateTime.now + 5.days)
+booking_l = Booking.create!(user_id: user_d.id, offer_id: offer_i.id, start_time: DateTime.now + 2.days, end_time: DateTime.now + 5.days)
+booking_m = Booking.create!(user_id: user_e.id, offer_id: offer_k.id, start_time: DateTime.now + 2.days, end_time: DateTime.now + 5.days)
+booking_n = Booking.create!(user_id: user_f.id, offer_id: offer_i.id, start_time: DateTime.now + 2.days, end_time: DateTime.now + 5.days)
 
 
 puts "réservations créées"
