@@ -74,6 +74,11 @@
 
 .card-offer {
   border-radius: 0.95rem;
+  border:	#73bfb8 solid 3px !important;
   width: 19rem;
   padding: 0 !important;
+}
+
+#img-card{
+  object-fit: cover;
 }
