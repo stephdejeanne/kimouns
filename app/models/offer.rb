@@ -3,6 +3,7 @@ class Offer < ApplicationRecord
   after_validation :geocode, if: :will_save_change_to_address?
   belongs_to :user
   has_many :bookings
+  has_many :reviews, through: :bookings
 
   def image_url
     case category
