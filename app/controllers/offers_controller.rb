@@ -32,6 +32,10 @@ class OffersController < ApplicationController
     redirect_to offer_path(@offer)
   end
 
+  def edit
+    @offer = Offer.find(params[:id])
+  end
+
   def destroy
     @offer.destroy
     redirect_to offers_path
