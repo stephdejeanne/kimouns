@@ -1,78 +1,67 @@
 <div class="container">
   <div class="d-flex align-items-center" style="height: 150px; card-grey">
-    <h2>L'arrangement <strong><%= @booking.offer.name %> </strong> entre <%=@booking.offer.user.first_name%>  et vous</h2>
+    <div class="text-blue"><h2>L'arrangement <strong><%= @booking.offer.name %></strong>  entre <%=@booking.offer.user.first_name%>  et vous</h2></div>
   </div>
 
   <div class="row">
 
   <!-- RECAP DU PROFIL DU CURRENT USER -->
-    <div class="px-4 col-4 border-start border-end border-dark border-1">
-      <div class="card card-dashboard w-100">
+    <div class="px-4 col-4">
+      <div class="card card-dashboard card-green w-100">
         <div class="card-header">
-          <strong>Vous :</strong>
+          <div class="text-green"> <h3> <strong>Vous :</strong></h3> </div>
         </div>
         <div class="card-body" style="display: flex; flex-direction: column;">
           <h5 class="card-title"><%=current_user.first_name %> <%=current_user.last_name%></h5>
           <p class="card-text">
-          <ul>
-            <li>Courriel : <%=current_user.email%></li>
-            <li>Tél : <%=current_user.phone_number%></li>
-            <li>Adresse : <%= current_user.address%></li>
+          <ul class="text-green">
+            <li><i class="fa-sharp fa-solid fa-envelope"></i> <%=current_user.email%></li>
+            <li><i class="fa-sharp fa-solid fa-phone"></i> <%=current_user.phone_number%></li>
+            <li><i class="fa-sharp fa-solid fa-house"></i> <%= current_user.address%></li>
           </ul>
           </p>
         </div>
       </div>
     </div>
 
-
   <!-- RECAP DE L'ARRANGEMENT ENTRE LES DEUX -->
-  <div class="px-4 col-4 border-start border-end border-dark border-1">
-      <div class="card card-dashboard w-100">
+  <div class="px-4 col-4">
+      <div class="card card-dashboard card-arrangement w-100">
         <div class="card-header">
-          <strong>L'arrangement :</strong>
+          <div class="text-blue"> <h2> <center> <strong>L'arrangement</strong> </center></h2> </div>
         </div>
         <div class="card-body" style="display: flex; flex-direction: column;">
-          <h5 class="card-title"><%=@booking.offer.name%></h5>
+          <h5 class="card-title"><%=@booking.offer.category%> : <strong><%=@booking.offer.name%></strong></h5>
           <p class="card-text">
-          <p <%=@booking.offer.description%>> </p>
-          <ul>
+          <p class="text-orange"> <justify> <%=@booking.offer.description%> </justify> </p>
+          <p class="text-green"> <u>Votre proposition : </u> <justify> <%=@booking.deal%> </justify> </p>
+          <ul class="text-green">
             <li>du : <%=@booking.start_time%></li>
             <li>au : <%=@booking.end_time%></li>
           </ul>
+          <div class="text-blue"> <p> L'arrangement est <strong><%=@booking.accepted_status%></strong> par <%=@booking.offer.user.first_name%> <%=@booking.offer.user.last_name%></div>
           </p>
         </div>
       </div>
     </div>
 
-
   <!-- RECAP DU PROFIL DU OFFER_ID -->
-    <div class="px-4 col-4 border-start border-end border-dark border-1">
-      <div class="card card-dashboard w-100">
+    <div class="px-4 col-4">
+      <div class="card card-dashboard card-orange w-100">
         <div class="card-header">
-          <strong>Votre Kimoun :</strong>
+          <div class="text-orange"> <h3> <strong>Votre Kimoun :</strong></h3> </div>
         </div>
         <div class="card-body" style="display: flex; flex-direction: column;">
           <h5 class="card-title"><%=@booking.offer.user.first_name%> <%=@booking.offer.user.last_name%></h5>
           <p class="card-text">
-          <ul>
-            <li>Courriel : <%=@booking.offer.user.email%></li>
-            <li>Tél : <%=@booking.offer.user.phone_number%></li>
-            <li>Adresse : <%=@booking.offer.user.address%></li>
+          <ul class="text-orange">
+            <li><i class="fa-sharp fa-solid fa-envelope"></i> <%=@booking.offer.user.email%></li>
+            <li><i class="fa-sharp fa-solid fa-phone"></i> <%=@booking.offer.user.phone_number%></li>
+            <li><i class="fa-sharp fa-solid fa-house"></i> <%=@booking.offer.user.address%></li>
           </ul>
           </p>
         </div>
       </div>
     </div>
-
   </div>
 </div>
-
-<%# formulaire de crétion de review %>
-
-<p><strong>Reviews</strong></p>
-<ul class="list-group">
-  <% @booking.reviews.each do |review| %>
-    <li class="list-group-item"><%= review.content %></li>
-  <% end %>
-</ul>
-<br>
