@@ -9,7 +9,14 @@
   <%= link_to booking_path(@booking), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
     <i class="fa fa-trash"></i>
   <% end %>
-</li>
+  </li>
+
+  <li class="list-group-item">
+  <%= link_to edit_booking_path(@booking) do %>
+    <i class="fa-solid fa-pen-to-square"></i>
+  <% end %>
+  </li>
+
 
   <!-- RECAP DU PROFIL DU CURRENT USER -->
     <div class="px-4 col-4">
