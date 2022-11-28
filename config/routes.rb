@@ -4,8 +4,12 @@ Rails.application.routes.draw do
 
   resources :offers do
     resources :bookings, only: [:new, :create]
+  end
+
+  resources :bookings do
     resources :reviews, only: [:new, :create]
   end
+
   resources :bookings, only: [:show, :destroy]
   resources :reviews, only: [:show, :destroy]
 
@@ -14,4 +18,3 @@ Rails.application.routes.draw do
   get '/dashboard', to: 'pages#dashboard', as: :dashboard
   get 'profile', to: 'pages#profile', as: :profile
 end
-

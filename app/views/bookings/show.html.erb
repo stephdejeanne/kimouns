@@ -24,7 +24,6 @@
       </div>
     </div>
 
-
   <!-- RECAP DE L'ARRANGEMENT ENTRE LES DEUX -->
   <div class="px-4 col-4 border-start border-end border-dark border-1">
       <div class="card card-dashboard w-100">
@@ -43,7 +42,6 @@
         </div>
       </div>
     </div>
-
 
   <!-- RECAP DU PROFIL DU OFFER_ID -->
     <div class="px-4 col-4 border-start border-end border-dark border-1">
@@ -64,15 +62,9 @@
       </div>
     </div>
 
+<!-- CREATION D'UN AVIS -->
+    <div>
+      <%= link_to "Ajoute un avis", new_booking_review_path(@booking) %>
+    </div>
   </div>
 </div>
-
-<%# formulaire de crétion de review %>
-
-<p><strong>Reviews</strong></p>
-<ul class="list-group">
-  <% @booking.reviews.each do |review| %>
-    <li class="list-group-item"><%= review.content %></li>
-  <% end %>
-</ul>
-<br>
