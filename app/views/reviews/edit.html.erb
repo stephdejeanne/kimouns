@@ -1,0 +1,6 @@
+<h1>Formulaire de saisie</h1>
+<%= simple_form_for([@booking, @review]) di |f| %>
+  <%= f.input :rating %>
+  <%= f.input :content %>
+  <%= f.button :submit %>
+<% end %>

@@ -1,5 +1,6 @@
 class BookingsController < ApplicationController
   before_action :set_offer, only: [:index, :new, :create]
+  # before_action :set_review, only: [:show, :new, :create]
   def index
     @bookings = Booking.where(offer: @offer, user: current_user)
   end
@@ -20,7 +21,7 @@ class BookingsController < ApplicationController
     if @booking.save
       redirect_to booking_path(@booking)
     else
-      render 'offers/show', status: :unprocessable_entity
+      render 'bookings/show', status: :unprocessable_entity
     end
   end
 
@@ -65,4 +66,8 @@ class BookingsController < ApplicationController
   def set_booking
     @booking = Booking.find(params[:id])
   end
+
+  # def set_review
+  #   @review = Review.find(params[:id])
+  # end
 end
