@@ -1,2 +1,15 @@
-<h1>nouvelle annonce</h1>
+<div class="container">
+  <div class="d-flex align-items-center" style="height: 150px; card-grey">
+    <h2>Salut <%=current_user.first_name %>  - Tu souhaites poster une offre ? super !!!</h2>
+  </div>
 
+  <div class="add-offer">
+    <%= simple_form_for(@offer) do |f|%>
+      <%= f.input :category, label:"Catégorie"%>
+      <%= f.input :name, label:"Titre"%>
+      <%= f.input :description, label:"Décrivez votre offre"%>
+      <%= f.input :address, label:"Votre adresse"%>
+      <%= f.submit 'POSTER', class: "btn btn-success button-dashboard button-green"%>
+    <% end %>
+  </div>
+</div>
