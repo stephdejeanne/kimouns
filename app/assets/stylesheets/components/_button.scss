@@ -1,11 +1,27 @@
 .button-dashboard {
   border-radius: 0.95rem;
-  background-color:#228b22!important;
   color: white!important;
+  position: relative;
+  right: 15px;
 }
 
 .button-index {
   border-radius: 0.95rem;
   background-color:#228b22!important;
   color: white!important;
+}
+
+.button-green {
+  border: #73bfb8!important;
+  background-color:	#73bfb8!important;
+}
+
+.button-blue {
+  border: #2364aa!important;
+  background-color:	#2364aa!important;
+}
+
+.button-orange {
+  border: #ea7317!important;
+  background-color:	#ea7317!important;
 }
