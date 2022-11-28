@@ -24,8 +24,12 @@ class OffersController < ApplicationController
 
   def create
     @offer = Offer.new(offer_params)
-    @offer.save!
-    redirect_to offer_path(@offer)
+    @offer.user = current_user
+      if @offer.save
+        redirect_to offer_path(@offer)
+      else
+        render :new, status: :unprocessable_entity
+      end
   end
 
   def update
@@ -46,5 +50,9 @@ class OffersController < ApplicationController
 
   def set_offer
     params.require(:offer).permit(:name, :category, :description, :user_id)
+  end
+
+  def offer_params
+    params.require(:offer).permit(:offer_id, :category, :name, :description)
   end
 end

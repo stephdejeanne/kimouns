@@ -33,7 +33,7 @@
 
           </li>
 
-            <%= link_to 'Se déconnecter', destroy_user_session_path, data: { turbo_method: 'delete' } %>
+            <%= link_to 'Se déconnecter', destroy_user_session_path, html: {'data-turbo' => "false"}, data: { turbo_method: 'delete' } %>
 
         </ul>
         <form class="d-flex mt-3" role="Que recherchez vous ?">

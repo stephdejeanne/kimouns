@@ -4,4 +4,14 @@ class Booking < ApplicationRecord
   has_many :reviews, dependent: :destroy
   # validates :start_time, presence: { strict: true }
   # validates :end_time, presence: { strict: true }
+  def accepted_status
+    case accepted
+    when "in-progress"
+      "en cours"
+    when "not-accepted"
+      "refusé"
+    when "accepted"
+      "accepté"
+    end
+  end
 end
