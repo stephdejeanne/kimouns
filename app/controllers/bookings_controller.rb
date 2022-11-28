@@ -18,10 +18,14 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.offer = @offer
     @booking.user = current_user
-    if @booking.save
-      redirect_to booking_path(@booking)
+    if @booking.start_time == nil || @booking.end_time == nil
+      redirect_to offer_path(@offer), status: :unprocessable_entity
     else
-      render 'bookings/show', status: :unprocessable_entity
+      if @booking.save!
+        redirect_to booking_path(@booking)
+      else
+        render 'bookings/new', status: :unprocessable_entity
+      end
     end
   end
 
