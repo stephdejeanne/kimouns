@@ -1,20 +1,40 @@
 class ReviewsController < ApplicationController
+  before_action :find_booking, only: [:new, :create]
+  before_action :find_review, only: [:edit, :update, :show, :destroy]
+  def all
+    @reviews = Review.all
+  end
   def new
     @review = Review.new
   end
 
   def create
     @review = Review.new(review_params)
-    @review.booking = Booking.find(params[:booking_id])
+    @review.booking_id = @booking.id
     if @review.save
-      redirect_to booking_path(@review.booking)
+      redirect_to offer_path(@review.booking.offer)
     else
-      render 'bookings/show', status: :unprocessable_entity
+      render 'new'
+    end
+  end
+
+  def edit
+  end
+
+  def update
+    if @review.update(review_params)
+      redirect_to booking_path(@booking)
+    else
+      render 'edit'
     end
   end
 
   def show
-    @review = Review.find(params[:id])
+  end
+
+  def destroy
+    @review.destroy
+    redirect_to booking_path(@booking)
   end
 
 private
@@ -23,7 +43,11 @@ private
     params.require(:review).permit(:content, :rating)
   end
 
-  def booking_params
-    params.require(:booking).permit(:start_time, :end_time)
+  def find_booking
+    @booking = Booking.find(params[:booking_id])
+  end
+
+  def find_review
+    @review = Review.find(params[:id])
   end
 end

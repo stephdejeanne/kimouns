@@ -1,0 +1,8 @@
+<p><%= review.rating %></p>
+<p><%= reviw.content %></p>
+  <%= if user_signed_in? %>
+    <%= if review.user_id == current_user.id %>
+      <%= link_to "Créer", edit_booking_review_path(review.booking, review) %>
+      <%= link_to "Effacer", booking_review_path(review.booking, review), method: :delete, data: {confirm: "Etes vous sur?"} %>
+    <% end %>
+  <% end %>

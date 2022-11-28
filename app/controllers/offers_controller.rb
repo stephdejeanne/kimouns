@@ -4,6 +4,7 @@ class OffersController < ApplicationController
   end
 
   def show
+    @reviews = Review.all
     # @offer = Offer.new
     @offer = Offer.find(params[:id])
     @offers = Offer.where(id: params[:id])
