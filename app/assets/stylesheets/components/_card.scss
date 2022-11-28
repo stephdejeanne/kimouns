@@ -34,8 +34,19 @@
 
 .card-dashboard {
   border-radius: 0.95rem;
-  border:3px solid	#228b22;
   margin: 10px 0;
+}
+
+.card-green {
+  border:	#73bfb8 solid 3px !important;
+}
+
+.card-blue {
+  border:	#2364aa solid 3px !important;
+}
+
+.card-orange {
+  border:	#ea7317 solid 3px !important;
 }
 
 .img-border-top {

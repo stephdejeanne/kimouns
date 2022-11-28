@@ -6,10 +6,11 @@
 
   <!-- VOS SAVOIR FAIRE -->
     <div class="px-4 col-4">
-      <h3> Vos savoir-faire </h3>
+      <div class="text-blue"> <h3> <strong>Vos Savoir-faire</strong></h3> </div>
+      <%= link_to "Modifier vos Savoir-faire", root_path, class: "btn btn-success button-dashboard button-blue" %>
       <ul class="ps-0">
         <% current_user.offers.each do |offer| %>
-        <div class="card card-dashboard w-100" style="width: 18rem;">
+        <div class="card card-dashboard card-blue w-100" style="width: 18rem;">
         <%= image_tag offer.image_url, class: 'card-img-top img-border-top', alt: 'photo de la catégorie de l\'offre' %>
           <div class="card-body">
             <p class="card-text">
@@ -19,15 +20,14 @@
           </div>
         </div>
         <% end %>
-        <%= link_to "Ajouter un savoir-faire", root_path, class: "btn btn-success button-dashboard" %>
       </ul>
     </div>
 
     <!-- VOS ENGAGEMENTS DE SERVICES -->
     <div class="px-4 col-4 border-start border-end border-dark border-1">
-      <h3> Vos engagements de service</h3>
+      <div class="text-green"> <h3> <strong>Vos engagements de service</strong></h3> </div>
       <% @bookings_as_owner.each do |booking| %>
-      <div class="card card-dashboard w-100">
+      <div class="card card-dashboard card-green w-100">
         <div class="card-header">
           <strong><%=booking.offer.name%></strong>
         </div>
@@ -40,7 +40,7 @@
           </ul>
           </p>
           <span style="align-self: flex-end; margin-top:0;">
-            <%= link_to "Voir l'arrangement", booking_path(booking), class: "btn btn-success button-dashboard" %>
+            <%= link_to "Voir l'arrangement", booking_path(booking), class: "btn btn-success button-dashboard button-green" %>
           </span>
           </div>
         </div>
@@ -49,9 +49,9 @@
 
   <!-- VOS DEMANDES DE SERVICES -->
     <div class="px-4 col-4">
-      <h3> Vos demandes de service </h3>
+      <div class="text-orange"> <h3> <strong>Vos demandes de service</strong></h3> </div>
       <% @bookings.each do |booking| %>
-        <div class="card card-dashboard w-100">
+        <div class="card card-dashboard card-orange w-100">
           <div class="card-header">
           <strong><%=booking.offer.name%></strong>
           </div>
@@ -64,7 +64,7 @@
             </ul>
           </p>
           <span style="align-self: flex-end; margin-top:0;">
-            <%= link_to "Voir l'arrangement", booking_path(booking), class: "btn btn-success button-dashboard" %>
+            <%= link_to "Voir l'arrangement", booking_path(booking), class: "btn btn-success button-dashboard button-orange" %>
           </span>
         </div>
       </div>
