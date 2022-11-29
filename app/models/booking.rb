@@ -6,7 +6,7 @@ class Booking < ApplicationRecord
   def accepted_status
     case accepted
     when "in-progress"
-      "en cours"
+      "pas encore répondu"
     when "not-accepted"
       "refusé"
     when "accepted"
