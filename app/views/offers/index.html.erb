@@ -1,6 +1,6 @@
 <div class="container">
   <div class="d-flex align-items-center" style="height: 150px; card-grey">
-    <h2> Propositions d'offres</h2>
+    <h2 id="title-offer"><strong>Propositions d'offres</strong></h2>
   </div>
 
   <div class="row">
@@ -10,12 +10,14 @@
           <img id="img-card" src="<%= offer.image_url %>" class="card-img-top img-border-top" alt="<%= offer.name.upcase %>">
           <div class="card-body">
             <div id="dispo" class="d-flex">
-              <h5 class="card-title"><span style="color: #fff; background-color: #2364AA; padding: 2px; border-radius: 4px; font-size: 16px; font-weight: 300px; font-familly: cinzel; padding: 4px;"><%= offer.name %></h5></span>
+              <h5 class="card-title"><span style="color: #fff; background-color: #2364AA; padding: 2px; border-radius: 4px; font-size: 16px; font-weight: 300px; font-familly: raleway; padding: 4px;"><%= offer.name %></h5></span>
               <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
             </div>
             <p id="text-card" class="card-text"><span style="font-size: 18px;"><%= offer.category %></span></p>
             <p id="text-card" class="card-text text-truncate d-block"><%= offer.description %></p>
-            <%= link_to "Sélectionner", offer_path(offer), class: "ml-5 btn btn-success button-dashboard button-green text-align-center" %>
+            <div class = "btn-card-offer">
+            <%= link_to "Sélectionner", offer_path(offer), class: "btn btn-success button-dashboard button-green text-align-center ps-10" %>
+            </div>
           </div>
         </div>
       <% end %>
