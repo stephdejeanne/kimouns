@@ -3,11 +3,11 @@
 en:
   devise:
     confirmations:
-      confirmed: "Your email address has been successfully confirmed."
-      send_instructions: "You will receive an email with instructions for how to confirm your email address in a few minutes."
-      send_paranoid_instructions: "If your email address exists in our database, you will receive an email with instructions for how to confirm your email address in a few minutes."
+      confirmed: "Votre adresse électronique a été confirmée avec succès."
+      send_instructions: "Vous recevrez dans quelques minutes un courriel contenant des instructions sur la manière de confirmer votre adresse électronique."
+      send_paranoid_instructions: "Si votre adresse électronique existe dans notre base de données, vous recevrez dans quelques minutes un courriel contenant des instructions sur la manière de confirmer votre adresse électronique."
     failure:
-      already_authenticated: "You are already signed in."
+      already_authenticated: "Vous êtes déjà connecté."
       inactive: "Your account is not activated yet."
       invalid: "Invalid %{authentication_keys} or password."
       locked: "Your account is locked."
