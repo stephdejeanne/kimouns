@@ -5,6 +5,8 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+
+
 p 'destroy'
 Booking.destroy_all
 Offer.destroy_all
@@ -24,7 +26,7 @@ user_g = User.create!(first_name: "Phil", last_name: "ROTO", email: "phil@gmail.
 puts "utilisateurs créés"
 
 offer_a = Offer.create!(user_id: user_a.id, name: "développement full stack", category: "Informatique", description: "Bonjour, je m'appelle Kelly et je propose de vous faire votre market-place", address: "Habitation Petit Morne, 97232 Le Lamentin")
-offer_b = Offer.create!(user_id: user_b.id, name: "développement full stack", category: "Informatique", description: "Hello, je m'appelle Alain et je vous propose de vous faire votre market-place", address: "Rue de la République, 97200 Fort-de-France")
+offer_b = Offer.create!(user_id: user_b.id, name: "concepteur designer UI", category: "Design UI/UX", description: "Hello, je m'appelle Alain et je vous propose de faire le design de votre site", address: "Rue de la République, 97200 Fort-de-France")
 offer_c = Offer.create!(user_id: user_c.id, name: "développement full stack", category: "Informatique", description: "Salut, je m'appelle Garry et je vous propose de vous faire votre market-place", address: "Habitation Petit Morne, 97232 Le Lamentin")
 offer_d = Offer.create!(user_id: user_d.id, name: "développement full stack", category: "Informatique", description: "Bonjour, je m'appelle Stéph et je propose de vous faire votre market-place", address: "Rue de la République, 97200 Fort-de-France")
 offer_e = Offer.create!(user_id: user_e.id, name: "préparation de douceur", category: "Cuisine", description: "Hello, c'est Mamie Coco et je vous propose de bons desserts pays", address: "Rue de la République, 97200 Fort-de-France")
