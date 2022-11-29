@@ -1,6 +1,8 @@
 <nav class="navbar navbar-dark bg-dark fixed-top">
   <div class="container-fluid">
-    <a class="navbar-brand" href="/">KiMounS</a>
+    <div class="row">
+      <a class="navbar-brand" href="/">KiMounS</a>
+    </div>
     <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -8,9 +10,23 @@
       <div class="offcanvas-header">
         <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">
         <% if current_user.nil? %>
-        <h5>Login</h5>
-          <% else %>
-          <%= current_user.first_name %></h5>
+          <div class="waviy">
+            <span style="--i:1">K</span>
+            <span style="--i:2">I</span>
+            <span style="--i:3">M</span>
+            <span style="--i:4">O</span>
+            <span style="--i:5">U</span>
+            <span style="--i:6">N</span>
+          </div>
+        <% else %>
+          <div class="waviy">
+            <span style="--i:1"><%= current_user.first_name[0] %></span>
+            <span style="--i:2"><%= current_user.first_name[1] %></span>
+            <span style="--i:3"><%= current_user.first_name[2] %></span>
+            <span style="--i:4"><%= current_user.first_name[3] %></span>
+            <span style="--i:5"><%= current_user.first_name[4] %></span>
+            <span style="--i:6"><%= current_user.first_name[5] %></span>
+          </div>
         <% end %>
         <% if current_user.nil? %>
         <% else %>
@@ -30,17 +46,37 @@
           <%= link_to 'Profil', profile_path, class: 'nav-link active', aria_current: 'page' %>
           <%= link_to 'Les offres', offers_path, class: 'nav-link active', aria_current: 'page' %>
           <%= link_to 'Tableau de bord', dashboard_path, class: 'nav-link active', aria_current: 'page' %>
-
+      <%#= link_to 'Se déconnecter', destroy_user_session_path, html: {'data-turbo' => "false"}, data: { turbo_method: 'delete' } %>
+          <li class="list-group-item">
+            <%= link_to destroy_user_session_path, :method => :delete  do %>
+              <i class="fa-solid fa-right-from-bracket"></i>
+            <% end %>
           </li>
-
-            <%= link_to 'Se déconnecter', destroy_user_session_path, html: {'data-turbo' => "false"}, data: { turbo_method: 'delete' } %>
-
-        </ul>
-        <form class="d-flex mt-3" role="Que recherchez vous ?">
-          <input class="form-control me-2" type="Que recherchez vous ?" placeholder="Que recherchez vous ?" aria-label="Que recherchez vous ?">
-          <button class="btn btn-success" type="submit">Rechercher</button>
-        </form>
+          <form class="d-flex" role="search">
+            <input class="form-control me-2" type="search" placeholder="Rechercher" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Rechercher</button>
+          </form>
+          <%# <div class="input-group rounded">
+            <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+            <span class="input-group-text border-0" id="search-addon">
+              <i class="fas fa-search"></i>
+            </span>
+          </div> %>
       </div>
     </div>
   </div>
 </nav>
+
+
+<%# class="hover-icon svg-inline--fa fa-person-to-portal fa-xl" %>
+
+
+
+
+
+<%# <div class="input-group rounded"> %>
+  <%# <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" /> %>
+  <%# <span class="input-group-text border-0" id="search-addon"> %>
+    <%# <i class="fas fa-search"></i> %>
+  <%# </span> %>
+<%# </div> %>
