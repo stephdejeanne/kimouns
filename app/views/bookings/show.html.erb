@@ -1,36 +1,43 @@
 <div class="container">
   <div class="d-flex align-items-center" style="height: 150px; card-grey">
-    <div class="text-blue"><h2>L'arrangement <strong><%= @booking.offer.name %></strong>  entre <%=@booking.offer.user.first_name%>  et vous</h2></div>
+    <div class="text-blue"><h2>L'arrangement <strong><%= @booking.offer.name %></strong>  entre <%=@booking.offer.user.first_name%>  et vous</div></h2>
+
+    <li class="list-group-item">
+    <%= link_to edit_booking_path(@booking) do %>
+      <i class="fa-solid fa-pen-to-square icone-for-change margin-left"></i>
+    <% end %>
+    </li>
+
+    <li class="list-group-item">
+    <%= link_to booking_path(@booking), data: {turbo_method: :delete, turbo_confirm: "Voulez vous vraiment supprimer cet arrangement ?"} do %>
+      <i class="fa fa-trash icone-for-change"></i>
+    <% end %>
+    </li>
+
+    <li class="list-group-item">
+    <%= link_to new_booking_review_path(@booking) do %>
+      <i class="fa-solid fa-comment icone-for-change margin-left"></i>
+    <% end %>
+    </li>
+
   </div>
 
   <div class="row">
-
-  <li class="list-group-item">
-  <%= link_to booking_path(@booking), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
-    <i class="fa fa-trash"></i>
-  <% end %>
-  </li>
-
-  <li class="list-group-item">
-  <%= link_to edit_booking_path(@booking) do %>
-    <i class="fa-solid fa-pen-to-square"></i>
-  <% end %>
-  </li>
 
 
   <!-- RECAP DU PROFIL DU CURRENT USER -->
     <div class="px-4 col-4">
       <div class="card card-dashboard card-green w-100">
-        <div class="card-header">
-          <div class="text-green"> <h3> <strong>Vous :</strong></h3> </div>
+        <div class="card-header" style="background-color: #73bfb8">
+          <div class="text-white"> <h3><center><strong>Vous</strong></center></h3></div>
         </div>
         <div class="card-body" style="display: flex; flex-direction: column;">
           <h5 class="card-title"><%=current_user.first_name %> <%=current_user.last_name%></h5>
           <p class="card-text">
-          <ul class="text-green">
-            <li><i class="fa-sharp fa-solid fa-envelope"></i> <%=current_user.email%></li>
-            <li><i class="fa-sharp fa-solid fa-phone"></i> <%=current_user.phone_number%></li>
-            <li><i class="fa-sharp fa-solid fa-house"></i> <%= current_user.address%></li>
+          <ul class="text-grey">
+            <p><i class="fa-sharp fa-solid fa-envelope text-green"></i> <%=current_user.email%></p>
+            <p><i class="fa-sharp fa-solid fa-phone text-green"></i> <%=current_user.phone_number%></p>
+            <p><i class="fa-sharp fa-solid fa-house text-green"></i> <%= current_user.address%></p>
           </ul>
           </p>
         </div>
@@ -40,19 +47,18 @@
   <!-- RECAP DE L'ARRANGEMENT ENTRE LES DEUX -->
   <div class="px-4 col-4">
       <div class="card card-dashboard card-arrangement w-100">
-        <div class="card-header">
-          <div class="text-blue"> <h2> <center> <strong>L'arrangement</strong> </center></h2> </div>
+        <div class="card-header" style="background-color: #2364aa">
+          <div class="text-white"> <h2><center><strong>L'arrangement</strong></center></h2></div>
         </div>
         <div class="card-body" style="display: flex; flex-direction: column;">
           <h5 class="card-title"><%=@booking.offer.category%> : <strong><%=@booking.offer.name%></strong></h5>
           <p class="card-text">
           <p class="text-orange"> <justify> <%=@booking.offer.description%> </justify> </p>
-          <p class="text-green"> <u>Votre proposition : </u> <justify> <%=@booking.deal%> </justify> </p>
-          <ul class="text-green">
-            <li>du : <%=@booking.start_time%></li>
-            <li>au : <%=@booking.end_time%></li>
-          </ul>
-          <div class="text-blue"> <p> L'arrangement est <strong><%=@booking.accepted_status%></strong> par <%=@booking.offer.user.first_name%> <%=@booking.offer.user.last_name%></div>
+          <p class="text-green"> <u>Votre proposition</u> : <justify> <%=@booking.deal%> </justify> </p>
+          <p class="text-green"> <u>Dates proposées</u> : </p>
+          <p class="text-green"> du <%=@booking.start_time.strftime("%d/%b/%y")%> au <%=@booking.end_time.strftime("%d/%b/%y")%></p>
+          <div class="text-orange"> <p><center><strong><%=@booking.accepted_status%></strong></center></div>
+          <div class="text-orange"> <p><center>par <%=@booking.offer.user.first_name%></center></div>
           </p>
         </div>
       </div>
@@ -61,25 +67,18 @@
   <!-- RECAP DU PROFIL DU OFFER_ID -->
     <div class="px-4 col-4">
       <div class="card card-dashboard card-orange w-100">
-        <div class="card-header">
-          <div class="text-orange"> <h3> <strong>Votre Kimoun :</strong></h3> </div>
+        <div class="card-header" style="background-color: #ea7317">
+          <div class="text-white"> <h3><center><strong>Votre Kimoun</strong></center></h3></div>
         </div>
         <div class="card-body" style="display: flex; flex-direction: column;">
           <h5 class="card-title"><%=@booking.offer.user.first_name%> <%=@booking.offer.user.last_name%></h5>
           <p class="card-text">
-          <ul class="text-orange">
-            <li><i class="fa-sharp fa-solid fa-envelope"></i> <%=@booking.offer.user.email%></li>
-            <li><i class="fa-sharp fa-solid fa-phone"></i> <%=@booking.offer.user.phone_number%></li>
-            <li><i class="fa-sharp fa-solid fa-house"></i> <%=@booking.offer.user.address%></li>
+          <ul class="text-grey">
+            <p><i class="fa-sharp fa-solid fa-envelope text-orange"></i> <%=@booking.offer.user.email%></p>
+            <p><i class="fa-sharp fa-solid fa-phone text-orange"></i> <%=@booking.offer.user.phone_number%></p>
+            <p><i class="fa-sharp fa-solid fa-house text-orange"></i> <%=@booking.offer.user.address%></p>
           </ul>
           </p>
         </div>
       </div>
     </div>
-
-<!-- CREATION D'UN AVIS -->
-    <div>
-      <%= link_to "Ajoute un avis", new_booking_review_path(@booking) %>
-    </div>
-  </div>
-</div>
