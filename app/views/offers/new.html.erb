@@ -5,7 +5,7 @@
 
   <div class="add-offer">
     <%= simple_form_for(@offer) do |f|%>
-      <%= f.input :category, label:"Catégorie"%>
+      <%= f.input :category, label:"Catégorie", :collection => [["Informatique", "Informatique"],["Cuisine", "Cuisine"],["Jardinage", "Jardinage"], ["Bricolage", "Bricolage"], ["Sport", "Sport"]]  %>
       <%= f.input :name, label:"Titre"%>
       <%= f.input :description, label:"Décrivez votre offre"%>
       <%= f.input :address, label:"Votre adresse"%>
