@@ -10,3 +10,29 @@
 .navbar-lewagon .navbar-brand img {
   width: 40px;
 }
+
+.form-control {
+  border-radius: 24px;
+}
+
+.btn-outline-success {
+  border-radius: 24px;
+}
+
+.waviy {
+  position: relative;
+}
+.waviy span {
+  position: relative;
+  display: inline-block;
+  font-size: 40px;
+  color: rgb(209, 200, 21);
+  text-transform: uppercase;
+  animation: flip 2s infinite;
+  animation-delay: calc(.2s * var(--i))
+}
+@keyframes flip {
+  0%,80% {
+    transform: rotateX(360deg)
+  }
+}
