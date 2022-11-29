@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  has_one_attached :photo
+  has_one_attached :picture
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
   # Include default devise modules. Others available are:

@@ -11,7 +11,7 @@
           <div class="card-body">
             <div id="dispo" class="d-flex">
               <h5 class="card-title"><span style="color: #fff; background-color: #2364AA; padding: 2px; border-radius: 4px; font-size: 16px; font-weight: 300px; font-familly: cinzel; padding: 4px;"><%= offer.name %></h5></span>
-              <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+              <img src="<%= offer.user.photo %>" class="card-trip-user avatar-bordered" />
             </div>
             <p id="text-card" class="card-text"><span style="font-size: 18px;"><%= offer.category %></span></p>
             <p id="text-card" class="card-text text-truncate d-block"><%= offer.description %></p>
