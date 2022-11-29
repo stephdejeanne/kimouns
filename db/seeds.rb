@@ -5,11 +5,19 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+
 p 'destroy'
 Booking.destroy_all
 Offer.destroy_all
 User.destroy_all
 p 'fini'
+
+# Création d'un tableau d'images pour la catégorie "Informatique"
+informatiques = ["https://images.unsplash.com/photo-1624996752380-8ec242e0f85d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
+  "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+  "https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80",
+  "https://images.unsplash.com/photo-1537498425277-c283d32ef9db?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1178&q=80",
+  "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1169&q=80"]
 
 # Création des utilisateurs
 p 'users'
@@ -25,12 +33,12 @@ user_g = User.create!(first_name: "Phil", last_name: "ROTO", email: "phil@gmail.
 puts "utilisateurs créés"
 
 offer_a = Offer.create!(user_id: user_a.id, name: "développement full stack", category: "Informatique", description: "Bonjour, je m'appelle Kelly et je propose de vous faire votre market-place", address: "Habitation Petit Morne, 97232 Le Lamentin")
-offer_b = Offer.create!(user_id: user_b.id, name: "développement full stack", category: "Informatique", description: "Hello, je m'appelle Alain et je vous propose de vous faire votre market-place", address: "Rue de la République, 97200 Fort-de-France")
+offer_b = Offer.create!(user_id: user_b.id, name: "conception designer UI", category: "Design UI/UX", description: "Hello, je m'appelle Alain et je vous propose de faire le design de votre site", address: "Rue de la République, 97200 Fort-de-France")
 offer_c = Offer.create!(user_id: user_c.id, name: "développement full stack", category: "Informatique", description: "Salut, je m'appelle Garry et je vous propose de vous faire votre market-place", address: "Habitation Petit Morne, 97232 Le Lamentin")
 offer_d = Offer.create!(user_id: user_d.id, name: "développement full stack", category: "Informatique", description: "Bonjour, je m'appelle Stéph et je propose de vous faire votre market-place", address: "Rue de la République, 97200 Fort-de-France")
 offer_e = Offer.create!(user_id: user_e.id, name: "préparation de douceur", category: "Cuisine", description: "Hello, c'est Mamie Coco et je vous propose de bons desserts pays", address: "Rue de la République, 97200 Fort-de-France")
 offer_f = Offer.create!(user_id: user_b.id, name: "montage de meuble", category: "Bricolage", description: "Coucou c'est Tonton BRICOL, toujours là pour vos meubles", address: "Habitation Petit Morne, 97232 Le Lamentin")
-offer_g = Offer.create!(user_id: user_g.id, name: "débrousaillage", category: "Jardinage", description: "Phil ROTO : coupe, rammasse et évacue les herbes", address: "Rue de la République, 97200 Fort-de-France")
+offer_g = Offer.create!(user_id: user_g.id, name: "débroussaillage", category: "Jardinage", description: "Phil ROTO : coupe, rammasse et évacue les herbes", address: "Rue de la République, 97200 Fort-de-France")
 offer_h = Offer.create!(user_id: user_a.id, name: "coaching sportif", category: "Sport", description: "Bonjour, je m'appelle Kelly et je vous propose du coaching sportif", address: "Habitation Petit Morne, 97232 Le Lamentin")
 offer_i = Offer.create!(user_id: user_b.id, name: "partenaire de jogging", category: "Sport", description: "C'est Alain, pour faire un petit jogging ensemble", address: "Habitation Petit Morne, 97232 Le Lamentin")
 offer_j = Offer.create!(user_id: user_c.id, name: "prêt d'altère", category: "Sport", description: "Hello, c'est Garry et j'ai tout un jeu d'altère si vous en avez besoin", address: "Habitation Petit Morne, 97232 Le Lamentin")

@@ -25,7 +25,7 @@
 
     <!-- VOS ENGAGEMENTS DE SERVICES -->
     <div class="px-4 col-4 border-start border-end border-dark border-1">
-      <div class="text-green"> <h3> <strong>Vos engagements de service</strong></h3> </div>
+      <div class="text-green"> <h3> <strong>Les propositions que vous avez reçues</strong></h3> </div>
       <% @bookings_as_owner.each do |booking| %>
       <div class="card card-dashboard card-green w-100">
         <div class="card-header">
@@ -34,14 +34,11 @@
         <div class="card-body" style="display: flex; flex-direction: column;">
           <h5 class="card-title">pour le Kimoun <%=booking.user.first_name%></h5>
           <p class="card-text">
-          <ul>
-            <li>du : <%=booking.start_time%></li>
-            <li>au : <%=booking.end_time%></li>
-          </ul>
-          </p>
-          <span style="align-self: flex-end; margin-top:0;">
-            <%= link_to "Voir l'arrangement", booking_path(booking), class: "btn btn-success button-dashboard button-green" %>
-          </span>
+            <p> du <%= booking.start_time.strftime("%d/%b/%y") %> au <%= booking.end_time.strftime("%d/%b/%y") %> </p>
+            <p> Statut : <strong><%=booking.accepted_status%></strong></p>
+            <span style="align-self: flex-end; margin-top:0;">
+              <%= link_to "Accepter ou Refuser ?", booking_path(booking), class: "btn btn-success button-dashboard button-green" %>
+            </span>
           </div>
         </div>
       <% end %>
@@ -49,7 +46,7 @@
 
   <!-- VOS DEMANDES DE SERVICES -->
     <div class="px-4 col-4">
-      <div class="text-orange"> <h3> <strong>Vos demandes de service</strong></h3> </div>
+      <div class="text-orange"> <h3> <strong>Les propositions que vous avez faites</strong></h3> </div>
       <% @bookings.each do |booking| %>
         <div class="card card-dashboard card-orange w-100">
           <div class="card-header">
@@ -58,11 +55,9 @@
         <div class="card-body" style="display: flex; flex-direction: column;">
           <h5 class="card-title">Le Kimoun <%=booking.offer.user.first_name%> <%=booking.offer.user.last_name%> s'est engagé</h5>
           <p class="card-text">
-            <ul>
-              <li>du : <%=booking.start_time%></li>
-              <li>au : <%=booking.end_time%></li>
-            </ul>
-          </p>
+          <p> du <%= booking.start_time.strftime("%d/%b/%y") %> au <%= booking.end_time.strftime("%d/%b/%y") %> </p>
+            <p> Statut : <strong><%=booking.accepted_status%></strong></p>
+            <span style="align-self: flex-end; margin-top:0;">
           <span style="align-self: flex-end; margin-top:0;">
             <%= link_to "Voir l'arrangement", booking_path(booking), class: "btn btn-success button-dashboard button-orange" %>
           </span>
