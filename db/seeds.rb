@@ -14,14 +14,17 @@ p 'fini'
 
 # Création des utilisateurs
 p 'users'
-user_a = User.create!(first_name: "Kelly", last_name: "NERESTAN", email: "kelly@gmail.com", password: "123456", address: "Rue de la République, 97200 Fort-de-France", photo: "https://res.cloudinary.com/dgcoaywt2/image/upload/v1669734618/avatar_3_kzm3fv.jpg")
-p 'its ok'
-user_b = User.create!(first_name: "Alain", last_name: "DELOIN", email: "alain@gmail.com", password: "123456", address: "Rue de la République, 97200 Fort-de-France", photo: "https://res.cloudinary.com/dgcoaywt2/image/upload/v1669734627/avatar_4_batuwj.jpg")
-user_c = User.create!(first_name: "Garry", last_name: "GABIN", email: "garry@gmail.com", password: "123456", address: "Habitation Petit Morne, 97232 Le Lamentin", photo: "https://res.cloudinary.com/dgcoaywt2/image/upload/v1669403767/Image_d_iOS_szjqqk.jpg")
-user_d = User.create!(first_name: "Stéphane", last_name: "CHAIGNEAU", email: "steph@gmail.com", password: "123456", address: "Habitation Petit Morne, 97232 Le Lamentin", photo: "https://res.cloudinary.com/dgcoaywt2/image/upload/v1669403765/image_r3ed2z.png")
-user_e = User.create!(first_name: "Mamie", last_name: "COCO", email: "mamie@gmail.com", password: "123456", address: "Habitation Petit Morne, 97232 Le Lamentin", photo: "https://zupimages.net/up/22/48/zdpv.png")
-user_f = User.create!(first_name: "Tonton", last_name: "BRICOL", email: "tonton@gmail.com", password: "123456", address: "Rue de la République, 97200 Fort-de-France", photo: "https://files.slack.com/files-tmb/T02NE0241-F04CX056ZR7-ea6487829e/image_480.png")
-user_g = User.create!(first_name: "Phil", last_name: "ROTO", email: "phil@gmail.com", password: "123456", address: "Habitation Petit Morne, 97232 Le Lamentin", photo: "https://res.cloudinary.com/dgcoaywt2/image/upload/v1669734627/avatar_4_batuwj.jpg")
+user_a = User.create!(first_name: "Kelly", last_name: "NERESTAN", email: "kelly@gmail.com", password: "123456", address: "Rue de la République, 97200 Fort-de-France")
+user_a.picture.attach(io: File.open(File.join(Rails.root, 'app/assets/images/Kelly.jpg')), filename: 'kelly')
+user_b = User.create!(first_name: "Alain", last_name: "DELOIN", email: "alain@gmail.com", password: "123456", address: "Rue de la République, 97200 Fort-de-France")
+user_b.picture.attach(io: File.open(File.join(Rails.root, 'app/assets/images/Alain.jpg')), filename: 'alain')
+user_c = User.create!(first_name: "Garry", last_name: "GABIN", email: "garry@gmail.com", password: "123456", address: "Habitation Petit Morne, 97232 Le Lamentin")
+user_c.picture.attach(io: File.open(File.join(Rails.root, 'app/assets/images/Garry.jpg')), filename: 'garry')
+user_d = User.create!(first_name: "Stéphane", last_name: "CHAIGNEAU", email: "steph@gmail.com", password: "123456", address: "Habitation Petit Morne, 97232 Le Lamentin")
+user_d.picture.attach(io: File.open(File.join(Rails.root, 'app/assets/images/Stephan.png')), filename: 'steph')
+user_e = User.create!(first_name: "Mamie", last_name: "COCO", email: "mamie@gmail.com", password: "123456", address: "Habitation Petit Morne, 97232 Le Lamentin")
+user_f = User.create!(first_name: "Tonton", last_name: "BRICOL", email: "tonton@gmail.com", password: "123456", address: "Rue de la République, 97200 Fort-de-France")
+user_g = User.create!(first_name: "Phil", last_name: "ROTO", email: "phil@gmail.com", password: "123456", address: "Habitation Petit Morne, 97232 Le Lamentin")
 
 puts "#{User.all.count} utilisateurs créés"
 
