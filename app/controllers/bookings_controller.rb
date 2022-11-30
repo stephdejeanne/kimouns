@@ -64,7 +64,7 @@ class BookingsController < ApplicationController
   end
 
   def booking_params
-    params.require(:booking).permit(:start_time, :end_time, :deal)
+    params.require(:booking).permit(:start_time, :end_time, :deal, :accepted)
   end
 
   def set_booking
