@@ -1,5 +1,5 @@
 <%= simple_form_for([@booking, @review]) do |f| %>
-  <%= f.input :rating %>
-  <%= f.input :content %>
-  <%= f.button :submit %>
+  <%= f.input :rating, collection: [1, 2, 3, 4, 5], label: "Note :" %>
+  <%= f.input :content, label: "Dites nous en plus sur votre expérience :" %>
+  <%= f.button :submit, value: "Déposer mon commentaire", class: "btn btn-success" %>
 <% end %>

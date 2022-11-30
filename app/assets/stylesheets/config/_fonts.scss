@@ -4,7 +4,17 @@
 // Define fonts for body and headers
 $body-font: "Work Sans", "cinzel", "sans-serif";
 $headers-font: "Nunito", "cinzel", "sans-serif";
-
+h1, h2, h3, h4{
+    font-family: Cinzel;
+    font-weight: 400;
+}
+p {
+    margin-top: 20px!important;
+    margin-bottom: 20px!important;
+    line-height: 30px;
+    font-family: Montserrat;
+    font-weight: 400;
+}
 // To use a font file (.woff) uncomment following lines
 // @font-face {
 //   font-family: "Font Name";

@@ -1,0 +1,52 @@
+.card-left {
+    display: flex;
+    column-gap: 5%;
+}
+.left-text {
+    align-self: center;
+    width: 60%;
+}
+
+#img-right{
+    height: 100%;
+    width: 40%;
+}
+
+.card-right {
+    display: flex;
+    column-gap: 5%;
+}
+.right-text {
+    align-self: center;
+    width: 50%;
+}
+
+#img-left{
+    height: 100%;
+    width: 50%;
+}
+
+#sp-green{
+    padding: 5px;
+    border-radius: 10px;
+    color: #fff;
+    font-family: Raleway;
+    font-weight: 400;
+    background-color: #41e29a;
+}
+
+.slide-left{
+    animation-duration: 3s;
+    animation-name: slidein;
+  }
+@keyframes slidein {
+    from {
+      margin-left: 100%;
+      width: 100%;
+    }
+  
+    to {
+      margin-left: 0%;
+      width: 100%;
+    }
+  }
