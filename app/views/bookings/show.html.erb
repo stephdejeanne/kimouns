@@ -29,10 +29,10 @@
     <div class="px-4 col-4">
       <div class="card card-dashboard card-green w-100">
         <div class="card-header" style="background-color: #73bfb8">
-          <div class="text-white"> <h3><center><strong><%= @booking.user.first_name %></strong></center></h3></div>
+          <div class="text-white d-flex justify-content-around align-items-center"> <h3><strong><%=@booking.user.first_name%></strong></h3> <img src="<%= @booking.user.photo %>" class="card-trip-user avatar-bordered" alt="photo de profil"></div>
         </div>
         <div class="card-body" style="display: flex; flex-direction: column;">
-          <h5 class="card-title"><%=@booking.user.first_name %> <%=@booking.user.last_name%></h5>
+          <h5 class="card-title"><%=@booking.user.first_name %> <%=@booking.user.last_name%> </h5>
           <ul class="text-grey">
             <p><i class="fa-sharp fa-solid fa-envelope text-green"></i> <%=@booking.user.email%></p>
             <p><i class="fa-sharp fa-solid fa-phone text-green"></i> <%=@booking.user.phone_number%></p>
@@ -70,10 +70,10 @@
     <div class="px-4 col-4">
       <div class="card card-dashboard card-orange w-100">
         <div class="card-header" style="background-color: #ea7317">
-          <div class="text-white"> <h3><center><strong><%=@booking.offer.user.first_name%></strong></center></h3></div>
+          <div class="text-white d-flex justify-content-around align-items-center"> <h3><strong><%=@booking.offer.user.first_name%></strong></h3> <img src="<%= @booking.offer.user.photo %>" class="card-trip-user avatar-bordered" alt="photo de profil"></div>
         </div>
         <div class="card-body" style="display: flex; flex-direction: column;">
-          <h5 class="card-title"><%=@booking.offer.user.first_name%> <%=@booking.offer.user.last_name%></h5>
+          <h5 class="card-title"><%=@booking.offer.user.first_name%> <%=@booking.offer.user.last_name%> <%@booking.offer.user.photo%></h5>
           <ul class="text-grey">
             <p><i class="fa-sharp fa-solid fa-envelope text-orange"></i> <%=@booking.offer.user.email%></p>
             <p><i class="fa-sharp fa-solid fa-phone text-orange"></i> <%=@booking.offer.user.phone_number%></p>
