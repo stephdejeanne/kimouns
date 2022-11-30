@@ -33,12 +33,15 @@
         </div>
         <div class="card-body" style="display: flex; flex-direction: column;">
           <h5 class="card-title"><%=booking.offer.name%></h5>
-          <p class="card-text">
             <p><%= booking.deal%></p>
             <p> du <%= booking.start_time.strftime("%d/%b/%y") %> au <%= booking.end_time.strftime("%d/%b/%y") %> </p>
-            <p> Statut : <strong><%=booking.accepted_status%></strong></p>
+            <p> Statut : <strong><%=booking.fr_status%></strong></p>
             <span style="align-self: flex-end; margin-top:0;">
+            <% if current_user == booking.offer.user && booking.pending?  %>
               <%= link_to "Accepter ou Refuser ?", booking_path(booking), class: "btn btn-success button-dashboard button-green" %>
+            <% else %>
+              <%= link_to "Voir l'arrangement", booking_path(booking), class: "btn btn-success button-dashboard button-green" %>
+            <% end %>
             </span>
           </div>
         </div>
@@ -55,11 +58,10 @@
           </div>
         <div class="card-body" style="display: flex; flex-direction: column;">
           <h5 class="card-title"><%=booking.offer.name%></h5>
-          <p class="card-text">
           <p><strong><%=booking.offer.user.first_name%> :</strong> <%= booking.offer.description %></p>
           <p> <strong>Ce que vous proposez en échange</strong> : <%= booking.deal %></p>
           <p> du <%= booking.start_time.strftime("%d/%b/%y") %> au <%= booking.end_time.strftime("%d/%b/%y") %> </p>
-            <p> Statut : <strong><%=booking.accepted_status%></strong></p>
+            <p> Statut : <strong><%=booking.fr_status%></strong></p>
             <span style="align-self: flex-end; margin-top:0;">
           <span style="align-self: flex-end; margin-top:0;">
             <%= link_to "Voir l'arrangement", booking_path(booking), class: "btn btn-success button-dashboard button-orange" %>
