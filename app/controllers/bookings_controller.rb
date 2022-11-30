@@ -1,6 +1,7 @@
 class BookingsController < ApplicationController
   before_action :set_offer, only: [:index, :new, :create]
   # before_action :set_review, only: [:show, :new, :create]
+  before_action :set_booking, except: [:index, :new, :create]
   def index
     @bookings = Booking.where(offer: @offer, user: current_user)
   end
@@ -10,7 +11,6 @@ class BookingsController < ApplicationController
   end
 
   def show
-    @booking = Booking.find(params[:id])
   end
 
   def create
@@ -30,7 +30,6 @@ class BookingsController < ApplicationController
   end
 
   def edit
-    @booking = Booking.find(params[:id])
     @offer = @booking.offer
     @markers = Offer.where(id: @offer.id).geocoded.map do |offer|
       {
@@ -42,8 +41,6 @@ class BookingsController < ApplicationController
   end
 
   def update
-    @booking = Booking.find(params[:id])
-
     if @booking.update(booking_params)
       redirect_to booking_path(@booking), notice: 'Votre réservation a bien été mise à jour'
     else
@@ -52,9 +49,18 @@ class BookingsController < ApplicationController
   end
 
   def destroy
-    @booking = Booking.find(params[:id])
     @booking.destroy
     redirect_to dashboard_path, notice: 'Votre réservation a bien été supprimée'
+  end
+
+  def accept
+    @booking.accepted!
+    redirect_to booking_path(@booking), notice: "Vous avez bien accepté l'arrangement"
+  end
+
+  def decline
+    @booking.declined!
+    redirect_to booking_path(@booking), notice: "Vous avez refusé l'arrangement"
   end
 
   private
@@ -63,12 +69,12 @@ class BookingsController < ApplicationController
     @offer = Offer.find(params[:offer_id])
   end
 
-  def booking_params
-    params.require(:booking).permit(:start_time, :end_time, :deal, :accepted)
-  end
-
   def set_booking
     @booking = Booking.find(params[:id])
+  end
+
+  def booking_params
+    params.require(:booking).permit(:start_time, :end_time, :deal, :status)
   end
 
   # def set_review
