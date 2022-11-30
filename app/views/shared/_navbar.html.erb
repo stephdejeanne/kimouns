@@ -31,9 +31,9 @@
         <% if current_user.nil? %>
         <% else %>
           <% if current_user.picture.attached? %>
-            <%= cl_image_tag current_user.photo.key, height: 80, width: 80, crop: :fill, class: "rounded-circle" %>
+            <%= cl_image_tag current_user.picture.key, height: 80, width: 80, crop: :fill, class: "rounded-circle" %>
           <% else %>
-            <img style="<% current_user.photo %>" src="https://res.cloudinary.com/demo/image/upload/c_thumb,g_face,h_250,w_250/docs/model.jpg">
+            <img class="rounded-circle" style="<% current_user.photo %>" src="https://i.pravatar.cc/80">
           <% end %>
         <% end %>
         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -47,15 +47,15 @@
           <%= link_to 'Les offres', offers_path, class: 'nav-link active', aria_current: 'page' %>
           <%= link_to 'Tableau de bord', dashboard_path, class: 'nav-link active', aria_current: 'page' %>
       <%#= link_to 'Se déconnecter', destroy_user_session_path, html: {'data-turbo' => "false"}, data: { turbo_method: 'delete' } %>
-          <li class="list-group-item">
+          <%# <form class="d-flex" role="search"> %>
+            <%# <input class="form-control me-2" type="search" placeholder="Rechercher" aria-label="Search"> %>
+            <%# <button class="bouton btn btn-outline-success" type="submit">Rechercher</button> %>
+          <%# </form> %>
+          <li class="logout list-group-item">
             <%= link_to destroy_user_session_path, :method => :delete  do %>
               <i class="fa-solid fa-right-from-bracket"></i>
             <% end %>
           </li>
-          <form class="d-flex" role="search">
-            <input class="form-control me-2" type="search" placeholder="Rechercher" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">Rechercher</button>
-          </form>
           <%# <div class="input-group rounded">
             <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
             <span class="input-group-text border-0" id="search-addon">
