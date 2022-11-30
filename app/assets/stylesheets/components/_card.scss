@@ -2,6 +2,13 @@
   margin: 15px;
 }
 
+.container {
+  grid-template-columns: 100px 50px 100px;
+  grid-template-rows: 80px auto 80px;
+  column-gap: 10px;
+  row-gap: 15px;
+}
+
 .card-grey {
   background-color: #dee7e7;
 }
@@ -19,17 +26,6 @@
 
 #img-card{
  height: 286px;
-}
-
-#text-card {
-  color: #000000;
-}
-
-.container {
-  grid-template-columns: 100px 50px 100px;
-  grid-template-rows: 80px auto 80px;
-  column-gap: 10px;
-  row-gap: 15px;
 }
 
 .card-dashboard {
@@ -54,7 +50,6 @@
   box-shadow: 10px 5px 5px #8b9fb5 !important;
 }
 
-
 .img-border-top {
   border-radius: 0.75rem 0.75rem 0 0;
 }
@@ -68,10 +63,17 @@
   object-fit: cover;
 }
 
-#dispo{
-  display: flex !important;
-  align-items: self-end;
-  place-content: space-between;
+.row{
+  place-content: center!important;
+}
+
+.card-title {
+  color: #000000;
+  font-family: josefin sans;
+  text-transform: uppercase;
+  font-weight: 700;
+  border-radius: 4px;
+  font-size: 16px;
 }
 
 .card-offer {
@@ -81,9 +83,25 @@
   padding: 0 !important;
 }
 
+#dispo{
+  display: flex !important;
+  align-items: self-end;
+  place-content: space-between;
+}
+
 #img-card{
   object-fit: cover;
 }
-.row{
-  place-content: center!important;
+
+#text-category {
+  display: inline-flex;
+  color: #ffffff;
+  background-color: #2364AA;
+  padding: 2px;
+  border-radius: 4px;
+  padding: 0.375rem 0.75rem;
+}
+
+#text-description {
+  color: #444444;
 }

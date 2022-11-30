@@ -10,16 +10,11 @@
           <img id="img-card" src="<%= offer.image_url %>" class="card-img-top img-border-top" alt="<%= offer.name.upcase %>">
           <div class="card-body">
             <div id="dispo" class="d-flex">
-
-              <h5 class="card-title"><span style="color: #000; text-transform: capitalize; font-weight: 600; padding: 2px; border-radius: 4px; font-size: 16px; font-weight: 300px; font-familly: cinzel; padding: 4px;"><%= offer.name %></h5></span>
+              <div class="card-title"><%= offer.name %></div>
               <img src="<%= offer.user.photo %>" class="card-trip-user avatar-bordered" />
-
-              <!-- <h6 class="card-title"><span style="color: #000000; font-familly: cinzel; text-transform: uppercase;"><strong><%= offer.name %></strong></h6></span>
-              <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" /> -->
-
             </div>
-            <p id="text-card" class="card-text"><span style="color: #fff; background-color: #2364AA; padding: 2px; border-radius: 4px; font-size: 16px; font-weight: 300px; font-familly: raleway; padding: 2px 10px 2px 10px;"><%= offer.category %></span></p>
-            <p id="text-card" class="card-text text-truncate d-block"><span style="color: #444444;"><%= offer.description %></span></p>
+            <p id="text-category"><%= offer.category %></p>
+            <p id="text-description" class="text-truncate d-block"><%= offer.description %></p>
             <div class = "btn-card-offer">
             <%= link_to "Sélectionner", offer_path(offer), class: "btn btn-success button-dashboard button-green text-align-center ps-10" %>
             </div>
