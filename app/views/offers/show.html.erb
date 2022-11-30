@@ -10,30 +10,31 @@
 
   <div class="row">
 
-    <div class="reviews-container flex flex-column col-6">
-      <h3>Type d' <span style="font-weight: bold; padding: 10px;padding-right: 20px; padding-left: 20px; color: #fff; background-color: #0b0b70; padding: 2px; border-radius: 4px; font-weight: 300px; font-familly: raleway;">offre :</span></h3>
-      <%= @offer.name %>
-      <br>
-      <br>
-      <span style="text-decoration: underline; font-size: 20px; font-style: italic;">Description de l'offre :</span>
-      <br>
-      <br>
-      <div style="background-color: #fff; padding: 50px; border-radius: 10px;">
-        <%= @offer.description %>
-      </div>
-      <div>
-          <%# afficher tous les avis dans la show de l'offer %>
-      <div>
-          <% @offer.reviews.each do |review| %>
-            <div class="review">
-              <p><%= review.content %></p>
-              <p><%= review.rating %></p>
-              <p><%= review.stars %></p>
-            </div>
-          <% end %>
-      </div>
-      </div>
+    <div class = "reviews-container flex flex-column col-6">
+      <div class = "offer-type">
+        <h3>Type d' <span style="font-weight: bold; padding: 10px;padding-right: 20px; padding-left: 20px; color: #fff; background-color: #0b0b70; padding: 2px; border-radius: 4px; font-weight: 300px; font-familly: raleway;">offre :</span></h3>
+        <%= @offer.name %>
+        <br>
+        <br>
+        <span style="text-decoration: underline; font-size: 20px; font-style: italic;">Description de l'offre :</span>
+        <br>
+        <br>
+
+        <div style="background-color: #fff; padding: 50px; border-radius: 10px;">
+          <%= @offer.description %>
+        </div>
     </div>
+
+    <div>
+      <% @offer.reviews.each do |review| %>
+          <div class="review">
+            <p><%= review.content %></p>
+            <p><%= review.rating %></p>
+            <p><%= review.stars %></p>
+          </div>
+      <% end %>
+    </div>
+  </div>
 
     <div class="col-6 pe-0">
 
@@ -41,19 +42,20 @@
         <div style="width: 100%; height: 100%;"
           data-controller="map"
           data-map-markers-value="<%= @markers.to_json %>"
-          data-map-api-key-value="pk.eyJ1Ijoib3ZuaSIsImEiOiJjbGF2OGNmcnowM2RsM3FsdHBpMmE3N20xIn0.smOmiv9X9IuuA8ibXzOuvQ"></div>
+          data-map-api-key-value="pk.eyJ1Ijoib3ZuaSIsImEiOiJjbGF2OGNmcnowM2RsM3FsdHBpMmE3N20xIn0.smOmiv9X9IuuA8ibXzOuvQ">
+        </div>
       </div>
 
-      <div class="row">
-        <%= simple_form_for [@offer, @booking], html: { class: 'form-booking', data: { controller: 'flatpickr' }} do |f| %>
-          <div class="d-flex justify-content-around">
-            <%= f.input :start_time, :label => "Début de la réservation", as: :string, input_html: { data: { flatpickr_target: 'startDateInput',  } } %>
-            <%= f.input :end_time, :label => "Fin de la réservation", as: :string, input_html: { data: { flatpickr_target: 'endDateInput'} } %>
-          </div>
-          <%= f.submit 'Réserve maintenant', class: 'btn btn-primary' %>
-        <% end %>
-      </div>
+    <div class="">
+      <%= simple_form_for [@offer, @booking], html: { class: 'form-booking', data: { controller: 'flatpickr' }} do |f| %>
+        <div class="d-flex justify-content-around">
+          <%= f.input :start_time, :label => "Début de la réservation", as: :string, input_html: { data: { flatpickr_target: 'startDateInput',  } } %>
+          <%= f.input :end_time, :label => "Fin de la réservation", as: :string, input_html: { data: { flatpickr_target: 'endDateInput'} } %>
+        </div>
+        <%= f.submit 'Réserve maintenant', class: 'btn btn-primary' %>
+      <% end %>
     </div>
-  </div>
+
+    </div>
 
 </div>
