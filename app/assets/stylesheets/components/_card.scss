@@ -83,6 +83,12 @@
   padding: 0 !important;
 }
 
+.show-offer {
+  .card-offer {
+    width: unset !important;
+  }
+}
+
 #dispo{
   display: flex !important;
   align-items: self-end;
