@@ -3,13 +3,22 @@
     <h2>Salut <%=current_user.first_name %>  - Tu souhaites poster une offre ? super !!!</h2>
   </div>
 
-  <div class="add-offer">
-    <%= simple_form_for(@offer) do |f|%>
-      <%= f.input :category, label:"Catégorie", :collection => [["Informatique", "Informatique"],["Cuisine", "Cuisine"],["Jardinage", "Jardinage"], ["Bricolage", "Bricolage"], ["Sport", "Sport"]]  %>
-      <%= f.input :name, label:"Titre"%>
-      <%= f.input :description, label:"Décrivez votre offre"%>
-      <%= f.input :address, label:"Votre adresse"%>
-      <%= f.submit 'POSTER', class: "btn btn-success button-dashboard button-green"%>
-    <% end %>
+
+<div class="row">
+  <div class="col-6">
+    <img src="https://res.cloudinary.com/dy0mnccyj/image/upload/v1669837411/b7c7bfe6aca40d721e6cd92c0ff85b5e_z6pnpw.jpg" alt="photo d'illustration" style="width:70%">
   </div>
+
+ <div class="col-6">
+    <div class="add-offer">
+      <%= simple_form_for(@offer) do |f|%>
+        <%= f.input :category, label:"Catégorie", :collection => [["Informatique", "Informatique"],["Cuisine", "Cuisine"],["Jardinage", "Jardinage"], ["Bricolage", "Bricolage"], ["Sport", "Sport"]]  %>
+        <%= f.input :name, label:"Titre"%>
+        <%= f.input :description, label:"Décrivez votre offre"%>
+        <%= f.input :address, label:"Votre adresse"%>
+        <%= f.submit 'POSTER', class: "btn btn-success button-dashboard button-green"%>
+      <% end %>
+    </div>
+  </div>
+
 </div>
