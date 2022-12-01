@@ -1,61 +1,69 @@
-
-<div class="banner-show" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= image_url "cytonn-photography-n95VMLxqM2I-unsplash.jpg" %>);">
-  <div class="container">
-    <h1>Mon offre : <strong><%= @offer.name %></strong> !</h1>
-    <p> <%= @offer.description %> </p>
+<div class="container">
+  <div class="d-flex align-items-center" style="height: 100px; card-grey">
+    <h2><center>Salut <%=current_user.first_name %>  - L'offre de <%=@offer.user.first_name%> t'interesse ? - Propose lui un Kimoun's deal</center></h2>
   </div>
-</div>
 
-<div class="container mt-5">
 
   <div class="row">
-
-    <div class = "reviews-container flex flex-column col-6">
-      <div class = "offer-type">
-        <h3>Type d' <span style="font-weight: bold; padding: 10px;padding-right: 20px; padding-left: 20px; color: #fff; background-color: #0b0b70; padding: 2px; border-radius: 4px; font-weight: 300px; font-familly: raleway;">offre :</span></h3>
-        <%= @offer.name %>
-        <br>
-        <br>
-        <span style="text-decoration: underline; font-size: 20px; font-style: italic;">Description de l'offre :</span>
-        <br>
-        <br>
-
-        <div style="background-color: #fff; padding: 50px; border-radius: 10px;">
-          <%= @offer.description %>
-        </div>
-    </div>
-
-    <div>
-      <% @offer.reviews.each do |review| %>
-          <div class="review">
-            <p><%= review.content %></p>
-            <p><%= review.rating %></p>
-            <p><%= review.stars %></p>
+    <div class="px-4 col-6 show-offer">
+      <div class="card card-offer">
+          <img id="img-card" src="<%=@offer.image_url %>" class="card-img-top img-border-top" alt="<%=@offer.name.upcase %>">
+          <div class="card-body">
+            <div id="dispo" class="d-flex">
+              <div class="card-title"><%=@offer.name %></div>
+              <img src="<%=@offer.user.photo %>" class="card-trip-user avatar-bordered" />
+            </div>
+            <p id="text-category"><%=@offer.category %></p>
+            <p id="text-description"><%=@offer.description %></p>
+            <div class = "btn-card-offer">
+            <%= link_to "Revoir la liste des offres", offers_path, class: "btn btn-success button-dashboard button-green text-align-center ps-10" %>
+            </div>
           </div>
-      <% end %>
-    </div>
-  </div>
-
-    <div class="col-6 pe-0">
-
-      <div class="show-map-container">
-        <div style="width: 100%; height: 100%;"
-          data-controller="map"
-          data-map-markers-value="<%= @markers.to_json %>"
-          data-map-api-key-value="pk.eyJ1Ijoib3ZuaSIsImEiOiJjbGF2OGNmcnowM2RsM3FsdHBpMmE3N20xIn0.smOmiv9X9IuuA8ibXzOuvQ">
         </div>
       </div>
 
-    <div class="">
-      <%= simple_form_for [@offer, @booking], html: { class: 'form-booking', data: { controller: 'flatpickr' }} do |f| %>
-        <div class="d-flex justify-content-around">
-          <%= f.input :start_time, :label => "Début de la réservation", as: :string, input_html: { data: { flatpickr_target: 'startDateInput',  } } %>
-          <%= f.input :end_time, :label => "Fin de la réservation", as: :string, input_html: { data: { flatpickr_target: 'endDateInput'} } %>
+
+    <div class="px-4 col-6">
+        <%= simple_form_for [@offer, @booking],
+                      html: {
+                        class: 'form-booking',
+                        data: {
+                          controller: 'flatpickr'
+                        }
+                      } do |f| %>
+        <div>
+          <div><strong>Quand souhaitez-vous que <%=@offer.user.first_name%></strong> intervienne ?</div>
+          <div class="mt-4">
+          <%= f.input :start_time, :label => "Date de début",
+                    as: :string,
+                      input_html: {
+                        data: {
+                          flatpickr_target: 'startDateInput',
+                        }
+                      } %>
+          <%= f.input :end_time, :label => "Date de fin",
+                    as: :string,
+                    input_html: {
+                      data: {
+                        flatpickr_target: 'endDateInput'
+                      }
+                    } %>
+      </div>
         </div>
-        <%= f.submit 'Réserve maintenant', class: 'btn btn-primary' %>
+        <div><strong>Que proposez-vous</strong> à <%=@offer.user.first_name%> ?</div>
+        <div class="mt-1">
+          <%= f.input :deal%>
+        </div>
+        <%= f.submit 'POSTER', class: "btn btn-success button-dashboard button-green"%>
       <% end %>
     </div>
+  </div>
 
-    </div>
-
-</div>
+  <div class="d-flex align-items-center">
+    <div class="show-map-container">
+        <div style="width: 100%; height: 100%;"
+          data-controller="map"
+          data-map-markers-value="<%= @markers.to_json %>"
+          data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+      </div>
+  </div>

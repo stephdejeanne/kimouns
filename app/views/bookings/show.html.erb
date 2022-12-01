@@ -1,6 +1,6 @@
 <div class="container">
-  <div class="d-flex align-items-center" style="height: 150px; card-grey">
-    <div class="text-blue"><h2>L'arrangement <strong><%= @booking.offer.name %></strong>  entre <%=@booking.offer.user.first_name%>  et vous</div></h2>
+  <div class="d-flex align-items-center" style="height: 100px; card-grey">
+    <div class="text-blue"><h2>Votre arrangement <strong><%= @booking.offer.name %></strong></span> entre <%= @booking.user.first_name %> et <%=@booking.offer.user.first_name%></div></h2>
 
     <li class="list-group-item">
     <%= link_to edit_booking_path(@booking) do %>
@@ -19,66 +19,70 @@
       <i class="fa-solid fa-comment icone-for-change margin-left"></i>
     <% end %>
     </li>
-
+  </div>
   </div>
 
-  <div class="row">
+<div class="row">
 
 
   <!-- RECAP DU PROFIL DU CURRENT USER -->
-    <div class="px-4 col-4">
+    <div id="slideright" class="px-4 col-4">
+    <img id="imgbon1" style="width: 15%; z-index: 2" src="https://res.cloudinary.com/hello-my-business/image/upload/c_pad,b_auto:predominant,fl_preserve_transparency/v1669860682/Screenshot_2022-11-30_at_22.10.57-removebg-preview_zvbqrg.jpg">
       <div class="card card-dashboard card-green w-100">
         <div class="card-header" style="background-color: #73bfb8">
-          <div class="text-white"> <h3><center><strong>Vous</strong></center></h3></div>
+          <div class="text-white d-flex justify-content-around align-items-center"><h3><strong><%= @booking.user.first_name %></strong></h3> <img src="<%= @booking.user.picture.attached? ? @booking.user.picture.url : @booking.user.photo %>" class="avatar-show-booking" /></div>
         </div>
         <div class="card-body" style="display: flex; flex-direction: column;">
-          <h5 class="card-title"><%=current_user.first_name %> <%=current_user.last_name%></h5>
-          <p class="card-text">
+         <h5 class="card-title"><%=@booking.user.first_name %> <%=@booking.user.last_name%></h5>
           <ul class="text-grey">
-            <p><i class="fa-sharp fa-solid fa-envelope text-green"></i> <%=current_user.email%></p>
-            <p><i class="fa-sharp fa-solid fa-phone text-green"></i> <%=current_user.phone_number%></p>
-            <p><i class="fa-sharp fa-solid fa-house text-green"></i> <%= current_user.address%></p>
+            <p><i class="fa-sharp fa-solid fa-envelope text-green"></i> <%=@booking.user.email%></p>
+            <p><i class="fa-sharp fa-solid fa-phone text-green"></i> <%=@booking.user.phone_number%></p>
+            <p><i class="fa-sharp fa-solid fa-house text-green"></i> <%= @booking.user.address%></p>
           </ul>
-          </p>
         </div>
       </div>
     </div>
 
   <!-- RECAP DE L'ARRANGEMENT ENTRE LES DEUX -->
-  <div class="px-4 col-4">
+  <div id="slideup" class="px-4 col-4">
       <div class="card card-dashboard card-arrangement w-100">
         <div class="card-header" style="background-color: #2364aa">
           <div class="text-white"> <h2><center><strong>L'arrangement</strong></center></h2></div>
         </div>
         <div class="card-body" style="display: flex; flex-direction: column;">
           <h5 class="card-title"><%=@booking.offer.category%> : <strong><%=@booking.offer.name%></strong></h5>
-          <p class="card-text">
           <p class="text-orange"> <justify> <%=@booking.offer.description%> </justify> </p>
           <p class="text-green"> <u>Votre proposition</u> : <justify> <%=@booking.deal%> </justify> </p>
-          <p class="text-green"> <u>Dates proposées</u> : </p>
+          <div class="text-green"> <u>Dates proposées</u> : </div>
           <p class="text-green"> du <%=@booking.start_time.strftime("%d/%b/%y")%> au <%=@booking.end_time.strftime("%d/%b/%y")%></p>
-          <div class="text-orange"> <p><center><strong><%=@booking.accepted_status%></strong></center></div>
-          <div class="text-orange"> <p><center>par <%=@booking.offer.user.first_name%></center></div>
-          </p>
+          <div class="text-orange"> <center><strong><%=@booking.fr_status%></strong></center></div>
+          <div class="text-orange"> <center>par <%=@booking.offer.user.first_name%></center></div>
+          <div class="d-flex justify-content-center" style="height: 75px">
+            <% if current_user == @booking.offer.user && @booking.pending? %>
+              <%= button_to "ACCEPTER", accept_booking_path, class: "btn btn-success button-dashboard button-blue margin-right-left"%>
+              <%= button_to "REFUSER", decline_booking_path, class: "btn btn-warning button-dashboard button-blue margin-right-left"%>
+            <% end %>
+          </div>
         </div>
       </div>
     </div>
 
   <!-- RECAP DU PROFIL DU OFFER_ID -->
-    <div class="px-4 col-4">
-      <div class="card card-dashboard card-orange w-100">
+
+    <div id="slideleft" class="px-4 col-4">
+    <img id="imgbon" style="width: 20%; z-index: 2" src="https://res.cloudinary.com/hello-my-business/image/upload/c_pad,b_auto:predominant,fl_preserve_transparency/v1669859860/Screenshot_2022-11-30_at_21.57.21-removebg-preview_etggmm.jpg">
+      <div id="box-orange-show" class="card card-dashboard card-orange w-100">
         <div class="card-header" style="background-color: #ea7317">
-          <div class="text-white"> <h3><center><strong>Votre Kimoun</strong></center></h3></div>
+          <div class="text-white d-flex justify-content-around align-items-center"><h3><strong><%= @booking.offer.user.first_name %></strong></h3> <img src="<%= @booking.offer.user.picture.attached? ? @booking.offer.user.picture.url : @booking.offer.user.photo %>" class="avatar-show-booking" /></div>
         </div>
         <div class="card-body" style="display: flex; flex-direction: column;">
-          <h5 class="card-title"><%=@booking.offer.user.first_name%> <%=@booking.offer.user.last_name%></h5>
-          <p class="card-text">
+          <h4 class="card-title"><%=@booking.offer.user.first_name%> <%=@booking.offer.user.last_name%></h4>
           <ul class="text-grey">
             <p><i class="fa-sharp fa-solid fa-envelope text-orange"></i> <%=@booking.offer.user.email%></p>
             <p><i class="fa-sharp fa-solid fa-phone text-orange"></i> <%=@booking.offer.user.phone_number%></p>
             <p><i class="fa-sharp fa-solid fa-house text-orange"></i> <%=@booking.offer.user.address%></p>
           </ul>
-          </p>
         </div>
       </div>
     </div>
+</div>

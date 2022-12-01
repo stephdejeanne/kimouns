@@ -3,11 +3,17 @@ class Booking < ApplicationRecord
   belongs_to :offer
   has_many :reviews, dependent: :destroy
 
-  def accepted_status
-    case accepted
-    when "in-progress"
+  enum status: {
+    pending: 0,
+    accepted: 1,
+    declined: 2
+  }
+
+  def fr_status
+    case status
+    when "pending"
       "pas encore répondu"
-    when "not-accepted"
+    when "declined"
       "refusé"
     when "accepted"
       "accepté"

@@ -25,19 +25,23 @@
 
     <!-- VOS ENGAGEMENTS DE SERVICES -->
     <div class="px-4 col-4 border-start border-end border-dark border-1">
-      <div class="text-green"> <h3> <strong>Les propositions que vous avez reçues</strong></h3> </div>
+      <div class="text-green"> <h3> <strong>Les arrangements que vous avez reçus</strong></h3> </div>
       <% @bookings_as_owner.each do |booking| %>
       <div class="card card-dashboard card-green w-100">
-        <div class="card-header">
-          <strong><%=booking.offer.name%></strong>
+        <div class="card-header text-white" style="background-color: #73bfb8">
+          <strong> de la part de <%=booking.user.first_name%> <%=booking.user.last_name%></strong>
         </div>
         <div class="card-body" style="display: flex; flex-direction: column;">
-          <h5 class="card-title">pour le Kimoun <%=booking.user.first_name%></h5>
-          <p class="card-text">
+          <h5 class="card-title"><%=booking.offer.name%></h5>
+            <p><%= booking.deal%></p>
             <p> du <%= booking.start_time.strftime("%d/%b/%y") %> au <%= booking.end_time.strftime("%d/%b/%y") %> </p>
-            <p> Statut : <strong><%=booking.accepted_status%></strong></p>
+            <p> Statut : <strong><%=booking.fr_status%></strong></p>
             <span style="align-self: flex-end; margin-top:0;">
+            <% if current_user == booking.offer.user && booking.pending?  %>
               <%= link_to "Accepter ou Refuser ?", booking_path(booking), class: "btn btn-success button-dashboard button-green" %>
+            <% else %>
+              <%= link_to "Voir l'arrangement", booking_path(booking), class: "btn btn-success button-dashboard button-green" %>
+            <% end %>
             </span>
           </div>
         </div>
@@ -46,17 +50,18 @@
 
   <!-- VOS DEMANDES DE SERVICES -->
     <div class="px-4 col-4">
-      <div class="text-orange"> <h3> <strong>Les propositions que vous avez faites</strong></h3> </div>
+      <div class="text-orange"> <h3> <strong>Les offres qui vous ont interessées</strong></h3> </div>
       <% @bookings.each do |booking| %>
         <div class="card card-dashboard card-orange w-100">
-          <div class="card-header">
-          <strong><%=booking.offer.name%></strong>
+          <div class="card-header text-white" style="background-color: #ea7317">
+          <strong><%=booking.offer.user.first_name%> <%=booking.offer.user.last_name%> propose</strong>
           </div>
         <div class="card-body" style="display: flex; flex-direction: column;">
-          <h5 class="card-title">Le Kimoun <%=booking.offer.user.first_name%> <%=booking.offer.user.last_name%> s'est engagé</h5>
-          <p class="card-text">
+          <h5 class="card-title"><%=booking.offer.name%></h5>
+          <p><strong><%=booking.offer.user.first_name%> :</strong> <%= booking.offer.description %></p>
+          <p> <strong>Ce que vous proposez en échange</strong> : <%= booking.deal %></p>
           <p> du <%= booking.start_time.strftime("%d/%b/%y") %> au <%= booking.end_time.strftime("%d/%b/%y") %> </p>
-            <p> Statut : <strong><%=booking.accepted_status%></strong></p>
+            <p> Statut : <strong><%=booking.fr_status%></strong></p>
             <span style="align-self: flex-end; margin-top:0;">
           <span style="align-self: flex-end; margin-top:0;">
             <%= link_to "Voir l'arrangement", booking_path(booking), class: "btn btn-success button-dashboard button-orange" %>
