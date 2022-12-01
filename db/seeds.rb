@@ -22,9 +22,10 @@ user_c = User.create!(first_name: "Garry", last_name: "GABIN", email: "garry@gma
 user_c.picture.attach(io: File.open(File.join(Rails.root, 'app/assets/images/Garry.jpg')), filename: 'garry')
 user_d = User.create!(first_name: "Stéphane", last_name: "CHAIGNEAU", email: "steph@gmail.com", password: "123456", address: "Habitation Petit Morne, 97232 Le Lamentin" ,phone_number:"0696452334")
 user_d.picture.attach(io: File.open(File.join(Rails.root, 'app/assets/images/Stephan.png')), filename: 'steph')
-user_e = User.create!(first_name: "Mamie", last_name: "COCO", email: "mamie@gmail.com", password: "123456", address: "Habitation Petit Morne, 97232 Le Lamentin", phone_number:"0696452398")
-user_f = User.create!(first_name: "Tonton", last_name: "BRICOL", email: "tonton@gmail.com", password: "123456", address: "Rue de la République, 97200 Fort-de-France", phone_number:"0696459756")
-user_g = User.create!(first_name: "Phil", last_name: "ROTO", email: "phil@gmail.com", password: "123456", address: "Habitation Petit Morne, 97232 Le Lamentin", phone_number:"0696953398")
+user_e = User.create!(first_name: "Mamie", last_name: "COCO", email: "mamie@gmail.com", password: "123456", address: "Habitation Petit Morne, 97232 Le Lamentin", photo: "https://res.cloudinary.com/dgcoaywt2/image/upload/v1669745047/mamie_zrdr0i.webp", phone_number:"0696452398")
+user_f = User.create!(first_name: "Tonton", last_name: "BRICOL", email: "tonton@gmail.com", password: "123456", address: "Rue de la République, 97200 Fort-de-France", photo: "https://res.cloudinary.com/dgcoaywt2/image/upload/v1669734610/avatar_2_vergo9.jpg", phone_number:"0696459756")
+user_g = User.create!(first_name: "Phil", last_name: "ROTO", email: "phil@gmail.com", password: "123456", address: "Habitation Petit Morne, 97232 Le Lamentin", photo: "https://res.cloudinary.com/dgcoaywt2/image/upload/v1669734591/avatar_1_accytt.jpg", phone_number:"0696953398")
+
 
 puts "#{User.all.count} utilisateurs créés"
 

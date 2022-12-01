@@ -9,6 +9,7 @@
     <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
       <div class="offcanvas-header">
         <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         <% if current_user.nil? %>
           <div class="waviy">
             <span style="--i:1">K</span>
@@ -19,24 +20,27 @@
             <span style="--i:6">N</span>
           </div>
         <% else %>
-          <div class="waviy">
-            <span style="--i:1"><%= current_user.first_name[0] %></span>
-            <span style="--i:2"><%= current_user.first_name[1] %></span>
-            <span style="--i:3"><%= current_user.first_name[2] %></span>
-            <span style="--i:4"><%= current_user.first_name[3] %></span>
-            <span style="--i:5"><%= current_user.first_name[4] %></span>
-            <span style="--i:6"><%= current_user.first_name[5] %></span>
+          <div class="waviy d-flex">
+            <div class="mr-auto p-2">
+              <span style="--i:1"><%= current_user.first_name[0] %></span>
+              <span style="--i:2"><%= current_user.first_name[1] %></span>
+              <span style="--i:3"><%= current_user.first_name[2] %></span>
+              <span style="--i:4"><%= current_user.first_name[3] %></span>
+              <span style="--i:5"><%= current_user.first_name[4] %></span>
+              <span style="--i:6"><%= current_user.first_name[5] %></span>
+            </div>
+            <% if current_user.nil? %>
+            <% else %>
+              <% if current_user.picture.attached? %>
+              <div id="placement" class="p-2">
+                <%= cl_image_tag current_user.picture.key, height: 80, width: 80, crop: :fill, class: "rounded-circle" %>
+              </div>
+              <% else %>
+                <img class="rounded-circle ml-auto p-2" style="<% current_user.photo %>" src="https://i.pravatar.cc/80">
+              <% end %>
+            <% end %>
           </div>
         <% end %>
-        <% if current_user.nil? %>
-        <% else %>
-          <% if current_user.picture.attached? %>
-            <%= cl_image_tag current_user.picture.key, height: 80, width: 80, crop: :fill, class: "rounded-circle" %>
-          <% else %>
-            <img class="rounded-circle" style="<% current_user.photo %>" src="https://i.pravatar.cc/80">
-          <% end %>
-        <% end %>
-        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
       </div>
       <div class="offcanvas-body">
         <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">

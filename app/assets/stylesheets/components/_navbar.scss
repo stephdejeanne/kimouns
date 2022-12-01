@@ -21,6 +21,7 @@
 
 .waviy {
   position: relative;
+  width: 100vw;
 }
 .waviy span {
   position: relative;
@@ -37,6 +38,10 @@
   }
 }
 
-.logout {
+div#placement > img {
+  margin-left: 100%;
+}
 
+button.btn-close.btn-close-white {
+  margin-left: -4%;
 }
