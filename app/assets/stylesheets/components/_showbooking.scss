@@ -7,7 +7,7 @@
     from {
       transform: translateX(100%);
     }
-  
+
     to {
       transform: translateX(0%);
     }
@@ -22,7 +22,7 @@
     from {
       transform: translateY(1000px);
     }
-  
+
     to {
       transform: translateY(0%);
     }
@@ -37,14 +37,14 @@
     from {
       transform: translateX(-1000px);
     }
-  
+
     to {
       transform: translateX(0%);
     }
   }
 
 // bonhomme
-.card.card-dashboard.card-orange.w-100 {
+#box-orange-show {
     bottom: 57px;
 }
 #imgbon1{
