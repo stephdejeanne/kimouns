@@ -8,67 +8,74 @@
     <div class="px-4 col-4">
       <div class="text-blue"> <h3> <strong>Vos Savoir-faire</strong></h3> </div>
       <%= link_to "Modifier vos Savoir-faire", root_path, class: "btn btn-success button-dashboard button-blue" %>
-      <ul class="ps-0">
-        <% current_user.offers.each do |offer| %>
-        <div class="card card-dashboard card-blue w-100" style="width: 18rem;">
-        <%= image_tag offer.image_url, class: 'card-img-top img-border-top', alt: 'photo de la catégorie de l\'offre' %>
-          <div class="card-body">
-            <p class="card-text">
-              <strong><%= offer.name %> : </strong>
-              <%= offer.description %>
-            </p>
+      <div class="scrollable">
+        <ul class="ps-0">
+          <% current_user.offers.each do |offer| %>
+          <div class="card card-dashboard card-blue w-100" style="width: 18rem;">
+          <%= image_tag offer.image_url, class: 'card-img-top img-border-top', alt: 'photo de la catégorie de l\'offre' %>
+            <div class="card-body">
+              <p class="card-text">
+                <strong><%= offer.name %> : </strong>
+                <%= offer.description %>
+              </p>
+            </div>
           </div>
-        </div>
-        <% end %>
-      </ul>
+          <% end %>
+        </ul>
+      </div>
     </div>
+
 
     <!-- VOS ENGAGEMENTS DE SERVICES -->
     <div class="px-4 col-4 border-start border-end border-dark border-1">
       <div class="text-green"> <h3> <strong>Les arrangements que vous avez reçus</strong></h3> </div>
+      <div class="scrollable">
       <% @bookings_as_owner.each do |booking| %>
-      <div class="card card-dashboard card-green w-100">
-        <div class="card-header text-white" style="background-color: #73bfb8">
-          <strong> de la part de <%=booking.user.first_name%> <%=booking.user.last_name%></strong>
-        </div>
-        <div class="card-body" style="display: flex; flex-direction: column;">
-          <h5 class="card-title"><%=booking.offer.name%></h5>
-            <p><%= booking.deal%></p>
-            <p> du <%= booking.start_time.strftime("%d/%b/%y") %> au <%= booking.end_time.strftime("%d/%b/%y") %> </p>
-            <p> Statut : <strong><%=booking.fr_status%></strong></p>
-            <span style="align-self: flex-end; margin-top:0;">
-            <% if current_user == booking.offer.user && booking.pending?  %>
-              <%= link_to "Accepter ou Refuser ?", booking_path(booking), class: "btn btn-success button-dashboard button-green" %>
-            <% else %>
-              <%= link_to "Voir l'arrangement", booking_path(booking), class: "btn btn-success button-dashboard button-green" %>
-            <% end %>
-            </span>
+        <div class="card card-dashboard card-green w-100">
+          <div class="card-header text-white" style="background-color: #73bfb8">
+            <strong> de la part de <%=booking.user.first_name%> <%=booking.user.last_name%></strong>
           </div>
-        </div>
-      <% end %>
+          <div class="card-body" style="display: flex; flex-direction: column;">
+            <h5 class="card-title"><%=booking.offer.name%></h5>
+              <p><%= booking.deal%></p>
+              <p> du <%= booking.start_time.strftime("%d/%b/%y") %> au <%= booking.end_time.strftime("%d/%b/%y") %> </p>
+              <p> Statut : <strong><%=booking.fr_status%></strong></p>
+              <span style="align-self: flex-end; margin-top:0;">
+              <% if current_user == booking.offer.user && booking.pending?  %>
+                <%= link_to "Accepter ou Refuser ?", booking_path(booking), class: "btn btn-success button-dashboard button-green" %>
+              <% else %>
+                <%= link_to "Voir l'arrangement", booking_path(booking), class: "btn btn-success button-dashboard button-green" %>
+              <% end %>
+              </span>
+            </div>
+          </div>
+        <% end %>
+      </div>
     </div>
 
   <!-- VOS DEMANDES DE SERVICES -->
     <div class="px-4 col-4">
       <div class="text-orange"> <h3> <strong>Les offres qui vous ont interessées</strong></h3> </div>
-      <% @bookings.each do |booking| %>
-        <div class="card card-dashboard card-orange w-100">
-          <div class="card-header text-white" style="background-color: #ea7317">
-          <strong><%=booking.offer.user.first_name%> <%=booking.offer.user.last_name%> propose</strong>
-          </div>
-        <div class="card-body" style="display: flex; flex-direction: column;">
-          <h5 class="card-title"><%=booking.offer.name%></h5>
-          <p><strong><%=booking.offer.user.first_name%> :</strong> <%= booking.offer.description %></p>
-          <p> <strong>Ce que vous proposez en échange</strong> : <%= booking.deal %></p>
-          <p> du <%= booking.start_time.strftime("%d/%b/%y") %> au <%= booking.end_time.strftime("%d/%b/%y") %> </p>
-            <p> Statut : <strong><%=booking.fr_status%></strong></p>
+      <div class="scrollable">
+        <% @bookings.each do |booking| %>
+          <div class="card card-dashboard card-orange w-100">
+            <div class="card-header text-white" style="background-color: #ea7317">
+            <strong><%=booking.offer.user.first_name%> <%=booking.offer.user.last_name%> propose</strong>
+            </div>
+          <div class="card-body" style="display: flex; flex-direction: column;">
+            <h5 class="card-title"><%=booking.offer.name%></h5>
+            <p><strong><%=booking.offer.user.first_name%> :</strong> <%= booking.offer.description %></p>
+            <p> <strong>Ce que vous proposez en échange</strong> : <%= booking.deal %></p>
+            <p> du <%= booking.start_time.strftime("%d/%b/%y") %> au <%= booking.end_time.strftime("%d/%b/%y") %> </p>
+              <p> Statut : <strong><%=booking.fr_status%></strong></p>
+              <span style="align-self: flex-end; margin-top:0;">
             <span style="align-self: flex-end; margin-top:0;">
-          <span style="align-self: flex-end; margin-top:0;">
-            <%= link_to "Voir l'arrangement", booking_path(booking), class: "btn btn-success button-dashboard button-orange" %>
-          </span>
+              <%= link_to "Voir l'arrangement", booking_path(booking), class: "btn btn-success button-dashboard button-orange" %>
+            </span>
+          </div>
         </div>
+      <% end %>
       </div>
-    <% end %>
     </div>
   </div>
 </div>
