@@ -8,27 +8,12 @@
 <div class="container mt-5">
 
   <div class="row">
-
     <div class="reviews-container flex flex-column col-4">
       <h3>Type d' <span style="color: #fff; background-color: #0b0b70; padding: 2px; border-radius: 4px; font-weight: 300px; font-familly: raleway;">offre :</span></h3> <%= @offer.name %><br><br>
       <span style="text-decoration: underline; font-size: 20px; font-style: italic;">Description de l'offre :</span><br><br>
-      <div style="background-color: #fff; padding: 50px; border-radius: 10px;"><%= @offer.description %></div>
-
+      <div style="background-color: #fff; margin-top: 50px; font-style: italic;"><%= @offer.description %></div>
     </div>
-
-    <div class="col-8 pe-0">
-
-      <div class="show-map-container">
-        <div style="width: 100%; height: 100%;"
-          data-controller="map"
-          data-map-markers-value="<%= @markers.to_json %>"
-          data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
-      </div>
-
-    </div>
-  </div>
-
-  <div class="row">
+  <div class="col-8">
     <%= simple_form_for @booking,
                       html: {
                         class: 'form-booking',
@@ -52,7 +37,17 @@
                       }
                     } %>
       </div>
-      <%= f.submit 'Mets à jour ta réservation', class: 'btn btn-primary' %>
+      <%= f.submit 'Mettre à jour ma réservation', class: 'btn btn-primary' %>
     <% end %>
   </div>
+    <div class="col-10 pe-0 mt-4 mb-5">
+      <div class="show-map-container" style="border: none;">
+        <div style="width: 100%; height: 100%;"
+          data-controller="map"
+          data-map-markers-value="<%= @markers.to_json %>"
+          data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+      </div>
+    </div>
+  </div>
+
 </div>
