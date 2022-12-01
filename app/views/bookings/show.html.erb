@@ -27,13 +27,13 @@
 
   <!-- RECAP DU PROFIL DU CURRENT USER -->
     <div id="slideright" class="px-4 col-4">
-    <img id="imgbon1" style="width: 10%; z-index: 2" src="https://res.cloudinary.com/hello-my-business/image/upload/c_pad,b_auto:predominant,fl_preserve_transparency/v1669860682/Screenshot_2022-11-30_at_22.10.57-removebg-preview_zvbqrg.jpg">
+    <img id="imgbon1" style="width: 20%; z-index: 2" src="https://res.cloudinary.com/hello-my-business/image/upload/c_pad,b_auto:predominant,fl_preserve_transparency/v1669859860/Screenshot_2022-11-30_at_21.57.21-removebg-preview_etggmm.jpg">
       <div class="card card-dashboard card-green w-100">
         <div class="card-header" style="background-color: #73bfb8">
-          <div class="text-white d-flex justify-content-around align-items-center"><h3><strong><%= @booking.user.first_name %></strong></h3> <img src="<%= @booking.user.photo %>" class="card-trip-user avatar-bordered" /></div>
+          <div class="text-white d-flex justify-content-around align-items-center"><h3><strong><%= @booking.user.first_name %></strong></h3> <img src="<%= @booking.user.photo %>" class="avatar-show-booking" /></div>
         </div>
         <div class="card-body" style="display: flex; flex-direction: column;">
-         <h5 class="card-title"><%=@booking.user.first_name %> <%=@booking.user.last_name%></h5><br>
+         <h5 class="card-title"><%=@booking.user.first_name %> <%=@booking.user.last_name%></h5>
           <ul class="text-grey">
             <p><i class="fa-sharp fa-solid fa-envelope text-green"></i> <%=@booking.user.email%></p>
             <p><i class="fa-sharp fa-solid fa-phone text-green"></i> <%=@booking.user.phone_number%></p>
@@ -53,10 +53,10 @@
           <h5 class="card-title"><%=@booking.offer.category%> : <strong><%=@booking.offer.name%></strong></h5>
           <p class="text-orange"> <justify> <%=@booking.offer.description%> </justify> </p>
           <p class="text-green"> <u>Votre proposition</u> : <justify> <%=@booking.deal%> </justify> </p>
-          <p class="text-green"> <u>Dates proposées</u> : </p>
+          <div class="text-green"> <u>Dates proposées</u> : </div>
           <p class="text-green"> du <%=@booking.start_time.strftime("%d/%b/%y")%> au <%=@booking.end_time.strftime("%d/%b/%y")%></p>
-          <div class="text-orange"> <p><center><strong><%=@booking.fr_status%></strong></center></div>
-          <div class="text-orange"> <p><center>par <%=@booking.offer.user.first_name%></center></div>
+          <div class="text-orange"> <center><strong><%=@booking.fr_status%></strong></center></div>
+          <div class="text-orange"> <center>par <%=@booking.offer.user.first_name%></center></div>
           <div class="d-flex justify-content-center" style="height: 75px">
             <% if current_user == @booking.offer.user && @booking.pending? %>
               <%= button_to "ACCEPTER", accept_booking_path, class: "btn btn-success button-dashboard button-blue margin-right-left"%>
@@ -70,13 +70,13 @@
   <!-- RECAP DU PROFIL DU OFFER_ID -->
 
     <div id="slideleft" class="px-4 col-4">
-    <img id="imgbon" style="width: 10%; z-index: 2" src="https://res.cloudinary.com/hello-my-business/image/upload/c_pad,b_auto:predominant,fl_preserve_transparency/v1669859860/Screenshot_2022-11-30_at_21.57.21-removebg-preview_etggmm.jpg">
+    <img id="imgbon" style="width: 20%; z-index: 2" src="https://res.cloudinary.com/hello-my-business/image/upload/c_pad,b_auto:predominant,fl_preserve_transparency/v1669859860/Screenshot_2022-11-30_at_21.57.21-removebg-preview_etggmm.jpg">
       <div class="card card-dashboard card-orange w-100">
         <div class="card-header" style="background-color: #ea7317">
-          <div class="text-white d-flex justify-content-around align-items-center"><h3><strong><%= @booking.offer.user.first_name %></strong></h3> <img src="<%= @booking.offer.user.photo %>" class="card-trip-user avatar-bordered" /></div>
+          <div class="text-white d-flex justify-content-around align-items-center"><h3><strong><%= @booking.offer.user.first_name %></strong></h3> <img src="<%= @booking.offer.user.photo %>" class="avatar-show-booking" /></div>
         </div>
         <div class="card-body" style="display: flex; flex-direction: column;">
-          <h5 class="card-title"><%=@booking.offer.user.first_name%> <%=@booking.offer.user.last_name%></h5>
+          <h4 class="card-title"><%=@booking.offer.user.first_name%> <%=@booking.offer.user.last_name%></h4>
           <ul class="text-grey">
             <p><i class="fa-sharp fa-solid fa-envelope text-orange"></i> <%=@booking.offer.user.email%></p>
             <p><i class="fa-sharp fa-solid fa-phone text-orange"></i> <%=@booking.offer.user.phone_number%></p>
