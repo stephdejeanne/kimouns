@@ -1,15 +1,22 @@
+body {
+  padding-bottom: 0em;
+}
+
 .footer {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: space-between;
   background: #F4F4F4;
+  padding-bottom: 20px;
 }
 
 .logo {
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
+  font-size: 50px;
+
 }
 
 .rules {
@@ -22,7 +29,7 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  align-items: flex-end;
+  align-items: flex-start;
 }
 
 .line-link {
@@ -31,6 +38,7 @@
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
+  margin-top: 2rem;
 }
 
 .line-icone {
@@ -42,15 +50,16 @@
 
 .footer-copyright {
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   padding: 16px;
+  white-space: pre-wrap;
 }
 
 .footer-links {
   display: flex;
   justify-content: center;
   align-items: flex-start;
- letter-spacing: 2rem;
+  letter-spacing: 2rem;
 }
 
 a {
