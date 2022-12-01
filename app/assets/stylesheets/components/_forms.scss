@@ -1,5 +1,5 @@
 .form-booking {
-  width: 550px;
+  // width: 550px;
   border-radius: 0.95rem;
   padding: 2rem;
   box-shadow: 10px 5px 5px #aebebd !important;
@@ -7,11 +7,21 @@
   border: 	#73bfb8 solid 3px !important;
 }
 
-.add-offer, .review {
-  width: 550px;
+.add-offer {
+  max-width: 550px;
   border-radius: 0.95rem;
   padding: 2rem;
   box-shadow: 10px 5px 5px #aebebd !important;
   margin: 2rem 0 2rem auto;
   border: 	#73bfb8 solid 3px !important;
+}
+
+.review {
+  justify-content: flex-end;
+  max-width: 550px;
+  border-radius: 0.95rem;
+  padding: 20px;
+  box-shadow: 10px 5px 5px #aebebd;
+  margin: 2rem 0 2rem 0;
+  border: 	#73bfb8 solid 3px;
 }
