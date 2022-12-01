@@ -14,17 +14,17 @@ p 'fini'
 
 # Création des utilisateurs
 p 'users'
-user_a = User.create!(first_name: "Kelly", last_name: "NERESTAN", email: "kelly@gmail.com", password: "123456", address: "Rue de la République, 97200 Fort-de-France")
+user_a = User.create!(first_name: "Kelly", last_name: "NERESTAN", email: "kelly@gmail.com", password: "123456", address: "Rue de la République, 97200 Fort-de-France", phone_number:"0696122334")
 user_a.picture.attach(io: File.open(File.join(Rails.root, 'app/assets/images/Kelly.jpg')), filename: 'kelly')
-user_b = User.create!(first_name: "Alain", last_name: "DELOIN", email: "alain@gmail.com", password: "123456", address: "Rue de la République, 97200 Fort-de-France")
+user_b = User.create!(first_name: "Alain", last_name: "DELOIN", email: "alain@gmail.com", password: "123456", address: "Rue de la République, 97200 Fort-de-France", phone_number:"0696564578")
 user_b.picture.attach(io: File.open(File.join(Rails.root, 'app/assets/images/Alain.jpg')), filename: 'alain')
-user_c = User.create!(first_name: "Garry", last_name: "GABIN", email: "garry@gmail.com", password: "123456", address: "Habitation Petit Morne, 97232 Le Lamentin")
+user_c = User.create!(first_name: "Garry", last_name: "GABIN", email: "garry@gmail.com", password: "123456", address: "Habitation Petit Morne, 97232 Le Lamentin", phone_number:"0696782356")
 user_c.picture.attach(io: File.open(File.join(Rails.root, 'app/assets/images/Garry.jpg')), filename: 'garry')
-user_d = User.create!(first_name: "Stéphane", last_name: "CHAIGNEAU", email: "steph@gmail.com", password: "123456", address: "Habitation Petit Morne, 97232 Le Lamentin")
+user_d = User.create!(first_name: "Stéphane", last_name: "CHAIGNEAU", email: "steph@gmail.com", password: "123456", address: "Habitation Petit Morne, 97232 Le Lamentin" ,phone_number:"0696452334")
 user_d.picture.attach(io: File.open(File.join(Rails.root, 'app/assets/images/Stephan.png')), filename: 'steph')
-user_e = User.create!(first_name: "Mamie", last_name: "COCO", email: "mamie@gmail.com", password: "123456", address: "Habitation Petit Morne, 97232 Le Lamentin")
-user_f = User.create!(first_name: "Tonton", last_name: "BRICOL", email: "tonton@gmail.com", password: "123456", address: "Rue de la République, 97200 Fort-de-France")
-user_g = User.create!(first_name: "Phil", last_name: "ROTO", email: "phil@gmail.com", password: "123456", address: "Habitation Petit Morne, 97232 Le Lamentin")
+user_e = User.create!(first_name: "Mamie", last_name: "COCO", email: "mamie@gmail.com", password: "123456", address: "Habitation Petit Morne, 97232 Le Lamentin", phone_number:"0696452398")
+user_f = User.create!(first_name: "Tonton", last_name: "BRICOL", email: "tonton@gmail.com", password: "123456", address: "Rue de la République, 97200 Fort-de-France", phone_number:"0696459756")
+user_g = User.create!(first_name: "Phil", last_name: "ROTO", email: "phil@gmail.com", password: "123456", address: "Habitation Petit Morne, 97232 Le Lamentin", phone_number:"0696953398")
 
 puts "#{User.all.count} utilisateurs créés"
 
