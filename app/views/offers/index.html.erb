@@ -11,7 +11,7 @@
           <div class="card-body">
             <div id="dispo" class="d-flex">
               <div class="card-title"><%= offer.name %></div>
-              <img src="<%= offer.user.photo %>" class="card-trip-user avatar-bordered" />
+              <img src="<%= offer.user.picture.attached? ? offer.user.picture.url : offer.user.photo %>" class="card-trip-user avatar-bordered"/>
             </div>
             <p id="text-category"><%= offer.category %></p>
             <p id="text-description" class="text-truncate d-block"><%= offer.description %></p>
